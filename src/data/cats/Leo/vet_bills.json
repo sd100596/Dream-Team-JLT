@@ -1,0 +1,17 @@
+[
+  {
+    "id": "bill-sugar-001",
+    "description": "Vaccination update",
+    "dueDate": "2026-04-15",
+    "amountDue": 45,
+    "status": "due"
+  },
+  {
+    "id": "bill-sugar-002",
+    "description": "Annual checkup",
+    "dueDate": "2026-03-01",
+    "amountDue": 85,
+    "status": "paid",
+    "paidDate": "2026-02-28"
+  }
+]
