@@ -4,9 +4,5 @@
   "age": 1,
   "breed": "Tuxedo",
   "gender": "Male",
-  "photo": "photo.jpg",
-  "tags": [
-    "Playful",
-    "Energetic"
-  ]
+  "photo": "photo.jpg"
 }

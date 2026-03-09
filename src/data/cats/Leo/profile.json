@@ -4,9 +4,5 @@
   "age": 3,
   "breed": "Domestic Shorthair",
   "gender": "Female",
-  "photo": "photo.jpg",
-  "tags": [
-    "Friendly",
-    "Kid-safe"
-  ]
+  "photo": "photo.jpg"
 }

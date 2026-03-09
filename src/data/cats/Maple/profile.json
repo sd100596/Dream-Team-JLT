@@ -3,10 +3,6 @@
   "location": "Cedar Lane apartments",
   "age": 4,
   "breed": "Orange Tabby",
-  "gender": "Female",
-  "photo": "photo.jpg",
-  "tags": [
-    "Sweet",
-    "Loving"
-  ]
+  "gender": "Male",
+  "photo": "photo.jpg"
 }

@@ -51,7 +51,6 @@ const cats = Object.keys(catModules).map((path) => {
     age: profile?.age,
     breed: profile?.breed,
     gender: profile?.gender,
-    tags: profile?.tags || [],
     notes: profile?.notes || [],
     photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
     vetBills: vetBills || [],

@@ -4,9 +4,5 @@
   "age": 2,
   "breed": "Black Domestic Shorthair",
   "gender": "Female",
-  "photo": "photo.jpg",
-  "tags": [
-    "Independent",
-    "Quiet"
-  ]
+  "photo": "photo.jpg"
 }
