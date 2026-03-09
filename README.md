@@ -66,7 +66,6 @@ src/data/cats/
   "age": 3,
   "breed": "Cat breed",
   "gender": "Male/Female",
-  "tags": ["Friendly", "Playful"],
   "notes": ["Note 1", "Note 2"]
 }
 ```
