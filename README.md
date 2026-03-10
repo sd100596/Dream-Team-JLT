@@ -78,14 +78,20 @@ src/data/cats/
     "description": "Vaccination",
     "dueDate": "2026-04-15",
     "amountDue": 45,
+    "status": "due",
+    "pdf": "invoice.pdf"
+  },
+  {
+    "description": "Checkup",
+    "dueDate": "2026-05-01",
+    "amountDue": 50,
     "status": "due"
   }
 ]
 ```
 
-For bills with PDFs, name the PDF file matching the bill ID: `<folderName>-bill-<index>.pdf`
-
-Example: If the folder is `Maple` and it's the first bill, name the PDF `Maple-bill-1.pdf`
+- `pdf` field is optional - omit it if there's no attached document
+- If present, the value should match the PDF filename in the cat's folder
 
 ## 🎨 Tech Stack
 

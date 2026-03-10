@@ -21,7 +21,7 @@ function Landing() {
     },
     {
       title: 'Success Stories',
-      content: 'Since the beginning of 2025, we have found homes for 9 cats, covered over AED 55,000 in veterinary bills, and TNR\'d 18 cats. Our TNR program is extremely important to us by supportinng the health and welfare of our stray cat community. Each cat tells a story of transformation.'
+      content: 'Since the beginning of 2025, we have found homes for 9 cats, covered over AED 55,000 in veterinary bills, and TNR\'d 18 cats. Our TNR program is extremely important to us by supporting the health and welfare of our stray cat community. Each cat tells a story of transformation.'
     }
   ];
 

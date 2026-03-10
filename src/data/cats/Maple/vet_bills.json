@@ -1,9 +1,9 @@
 [
   {
-    "id": "Maple-bill-001",
     "description": "Invoice - 2158 - BIOVET LAB DMCC",
     "dueDate": "2026-04-15",
     "amountDue": 450,
-    "status": "due"
+    "status": "due",
+    "pdf": "Maple-bill-1.pdf"
   }
 ]

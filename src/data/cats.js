@@ -23,17 +23,18 @@ const cats = Object.keys(catModules).map((path) => {
   // Find PDFs in folder
   const pdfFiles = {};
   Object.keys(pdfModules).forEach(pdfPath => {
-    const fileName = pdfPath.split('/').pop().replace('.pdf', '').toLowerCase();
+    const fileName = pdfPath.split('/').pop(); // Keep original case
     pdfFiles[fileName] = String(pdfModules[pdfPath]);
   });
 
-  // Generate unique bill IDs based on folder name and index, and attach PDF URL
+  // Generate bill data - use pdf field if present, otherwise no PDF
   const vetBills = rawVetBills.map((bill, index) => {
     const billId = `${folderName}-bill-${index + 1}`;
+    const pdfFileName = bill?.pdf ? `${bill.pdf}` : null;
     return {
       ...bill,
       id: billId,
-      pdfUrl: pdfFiles[billId.toLowerCase()] || null
+      pdfUrl: pdfFileName && pdfFiles[pdfFileName] ? pdfFiles[pdfFileName] : null
     };
   });
 
