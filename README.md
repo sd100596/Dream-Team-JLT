@@ -76,16 +76,16 @@ src/data/cats/
 [
   {
     "description": "Vaccination",
-    "dueDate": "2026-04-15",
-    "amountDue": 45,
+    "date": "2026-04-15",
+    "amount": 45,
     "status": "due",
     "pdf": "invoice.pdf"
   },
   {
     "description": "Checkup",
-    "dueDate": "2026-05-01",
-    "amountDue": 50,
-    "status": "due"
+    "date": "2026-05-01",
+    "amount": 50,
+    "status": "paid"
   }
 ]
 ```

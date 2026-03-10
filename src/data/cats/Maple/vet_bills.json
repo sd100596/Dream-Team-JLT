@@ -1,9 +1,23 @@
 [
   {
+    "description": "Maple Invoice 22-28 January 2026 Hospital stay/tests",
+    "date": "2026-01-26",
+    "amount": 2220.60,
+    "status": "paid",
+    "pdf": "Invoice - 2158 - BIOVET LAB DMCC.pdf"
+  },
+  {
+    "description": "Maple Invoice 5 February 2026 Follow up tests",
+    "date": "2026-02-05",
+    "amount": 958.00,
+    "status": "paid",
+    "pdf": "Invoice - 2271 - BIOVET LAB DMCC.pdf"
+  },
+  {
     "description": "Invoice - 2158 - BIOVET LAB DMCC",
-    "dueDate": "2026-04-15",
-    "amountDue": 450,
+    "date": "2026-04-15",
+    "amount": 450,
     "status": "due",
-    "pdf": "Maple-bill-1.pdf"
+    "pdf": "Invoice - 2158 - BIOVET LAB DMCC.pdf"
   }
 ]

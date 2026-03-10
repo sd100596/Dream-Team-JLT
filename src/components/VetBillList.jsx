@@ -66,7 +66,7 @@ function VetBillList({ bills }) {
             {bill.description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {isPending ? `Due: ${formatDate(bill.dueDate)}` : `Paid: ${formatDate(bill.paidDate || bill.dueDate)}`}
+            {isPending ? `Due: ${formatDate(bill.date)}` : `Paid: ${formatDate(bill.date)}`}
           </Typography>
         </Box>
       </Box>
@@ -86,7 +86,7 @@ function VetBillList({ bills }) {
           </Tooltip>
         )}
         <Chip 
-          label={formatCurrency(bill.amountDue)} 
+          label={formatCurrency(bill.amount)} 
           color={isPending ? 'error' : 'success'} 
           variant="outlined"
           sx={{ fontWeight: 600 }}
