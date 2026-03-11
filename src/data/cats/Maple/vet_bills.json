@@ -12,12 +12,5 @@
     "amount": 958.00,
     "status": "paid",
     "pdf": "Invoice - 2271 - BIOVET LAB DMCC.pdf"
-  },
-  {
-    "description": "Invoice - 2158 - BIOVET LAB DMCC",
-    "date": "2026-04-15",
-    "amount": 450,
-    "status": "due",
-    "pdf": "Invoice - 2158 - BIOVET LAB DMCC.pdf"
   }
 ]

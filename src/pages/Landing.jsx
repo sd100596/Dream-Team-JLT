@@ -105,13 +105,13 @@ function Landing() {
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
               <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" color="primary.main" sx={{ fontWeight: 700 }}>20+</Typography>
+                <Typography variant="h2" color="primary.main" sx={{ fontWeight: 700 }}>9+</Typography>
                 <Typography variant="h6" color="text.secondary">Cats Adopted</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} md={4}>
               <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" color="secondary.main" sx={{ fontWeight: 700 }}>AED 55K+</Typography>
+                <Typography variant="h2" color="secondary.main" sx={{ fontWeight: 700 }}>AED 60K+</Typography>
                 <Typography variant="h6" color="text.secondary">Vet Bills Covered</Typography>
               </Box>
             </Grid>
