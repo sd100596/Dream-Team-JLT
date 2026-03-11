@@ -1,6 +1,6 @@
 import { Accordion as MuiAccordion, AccordionSummary, AccordionDetails, Typography, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { styled } from '@mui/material/styles';
+import { styled, alpha } from '@mui/material/styles';
 
 const StyledAccordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -22,13 +22,16 @@ function AccordionItem({ title, children, defaultExpanded = false }) {
     <StyledAccordion defaultExpanded={defaultExpanded}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon sx={{ color: 'primary.main', fontSize: 32 }} />}
-        sx={{
-          bgcolor: 'rgba(78, 205, 196, 0.08)',
+        sx={(theme) => ({
+          bgcolor: alpha(
+            theme.palette.secondary.main,
+            theme.palette.mode === 'light' ? 0.08 : 0.18
+          ),
           py: 2,
           '&.Mui-expanded': {
             minHeight: 72,
           },
-        }}
+        })}
       >
         <Typography 
           variant="h5" 
@@ -41,7 +44,7 @@ function AccordionItem({ title, children, defaultExpanded = false }) {
           {title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ p: 4, bgcolor: 'white' }}>
+      <AccordionDetails sx={{ p: 4, bgcolor: 'background.paper' }}>
         <Typography variant="h6" color="text.secondary" sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}>
           {children}
         </Typography>

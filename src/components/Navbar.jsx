@@ -1,15 +1,23 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Tooltip } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
-function Navbar() {
+function Navbar({ mode, onToggleMode }) {
+  const isDark = mode === 'dark';
+
   return (
     <AppBar 
       position="sticky" 
-      sx={{ 
-        bgcolor: 'white',
+      sx={(theme) => ({ 
+        bgcolor: 'background.paper',
         color: 'text.primary',
-        boxShadow: '0 2px 12px rgba(0,0,0,0.06)'
-      }}
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        boxShadow:
+          theme.palette.mode === 'light'
+            ? '0 2px 12px rgba(0,0,0,0.06)'
+            : '0 2px 12px rgba(0,0,0,0.35)',
+      })}
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -35,7 +43,7 @@ function Navbar() {
           </Typography>
         </Box>
         
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <Button 
             component={RouterLink} 
             to="/"
@@ -59,6 +67,16 @@ function Navbar() {
           >
             See Cats
           </Button>
+          <Tooltip title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}>
+            <IconButton 
+              onClick={onToggleMode} 
+              color="inherit" 
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              sx={{ ml: 0.5 }}
+            >
+              {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+          </Tooltip>
         </Box>
       </Toolbar>
     </AppBar>

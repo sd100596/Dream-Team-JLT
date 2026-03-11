@@ -26,7 +26,15 @@ function PdfViewerModal({ open, onClose, pdfUrl, billDescription }) {
         sx: { borderRadius: 3, minHeight: '80vh' }
       }}
     >
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2, borderBottom: '1px solid #eee' }}>
+      <Box
+        sx={(theme) => ({
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          p: 2,
+          borderBottom: `1px solid ${theme.palette.divider}`,
+        })}
+      >
         <Typography variant="h6" sx={{ fontFamily: '"Fredoka", sans-serif' }}>
           {billDescription}
         </Typography>
@@ -40,11 +48,19 @@ function PdfViewerModal({ open, onClose, pdfUrl, billDescription }) {
         </Box>
       </Box>
       
-      <DialogContent sx={{ p: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: '#333' }}>
+      <DialogContent
+        sx={(theme) => ({
+          p: 0,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          bgcolor: theme.palette.mode === 'light' ? '#333' : '#0B0F14',
+        })}
+      >
         {loading && (
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', py: 8 }}>
             <CircularProgress color="inherit" />
-            <Typography sx={{ color: 'white', mt: 2 }}>Loading PDF...</Typography>
+            <Typography sx={{ color: 'common.white', mt: 2 }}>Loading PDF...</Typography>
           </Box>
         )}
         <iframe
