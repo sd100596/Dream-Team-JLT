@@ -5,6 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ErrorIcon from '@mui/icons-material/Error';
 import VetBillList from '../components/VetBillList';
 import catsData from '../data/cats';
+import { alpha } from '@mui/material/styles';
 
 function CatDetail() {
   const { id } = useParams();
@@ -42,12 +43,15 @@ function CatDetail() {
           {/* Photo Section */}
           <Grid item xs={12} md={6}>
             <Paper
-              sx={{
+              sx={(theme) => ({
                 borderRadius: 4,
                 overflow: 'hidden',
                 position: 'relative',
-                boxShadow: '0 12px 40px rgba(0,0,0,0.1)',
-              }}
+                boxShadow: `0 12px 40px ${alpha(
+                  theme.palette.common.black,
+                  theme.palette.mode === 'light' ? 0.1 : 0.55
+                )}`,
+              })}
             >
               <Box sx={{ position: 'relative' }}>
                 <Box
@@ -63,30 +67,31 @@ function CatDetail() {
                 />
                 {/* Photo Frame Effect */}
                 <Box
-                  sx={{
+                  sx={(theme) => ({
                     position: 'absolute',
                     inset: 0,
-                    border: '8px solid white',
+                    border: '8px solid',
+                    borderColor: theme.palette.background.paper,
                     pointerEvents: 'none',
-                  }}
+                  })}
                 />
                 {/* Pending Bills Badge */}
                 {hasPendingBills && (
                   <Box
-                    sx={{
+                    sx={(theme) => ({
                       position: 'absolute',
                       top: 16,
                       right: 16,
                       display: 'flex',
                       alignItems: 'center',
                       gap: 1,
-                      bgcolor: '#E74C3C',
-                      color: 'white',
+                      bgcolor: 'error.main',
+                      color: 'error.contrastText',
                       px: 2,
                       py: 1,
                       borderRadius: 3,
-                      boxShadow: '0 4px 12px rgba(231,76,60,0.5)',
-                    }}
+                      boxShadow: `0 4px 12px ${alpha(theme.palette.error.main, 0.5)}`,
+                    })}
                   >
                     <ErrorIcon sx={{ fontSize: 20 }} />
                     <Typography variant="subtitle2" fontWeight={600}>
@@ -124,7 +129,16 @@ function CatDetail() {
             </Box>
 
             {/* Location */}
-            <Paper sx={{ p: 3, mb: 4, bgcolor: 'rgba(78, 205, 196, 0.08)' }}>
+            <Paper
+              sx={(theme) => ({
+                p: 3,
+                mb: 4,
+                bgcolor: alpha(
+                  theme.palette.secondary.main,
+                  theme.palette.mode === 'light' ? 0.08 : 0.18
+                ),
+              })}
+            >
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                 <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 32 }} />
                 <Box>
@@ -150,7 +164,7 @@ function CatDetail() {
                       key={index} 
                       label={note} 
                       sx={{ 
-                        bgcolor: '#F8F9FA',
+                        bgcolor: 'action.hover',
                         '& .MuiChip-label': { px: 2 }
                       }} 
                     />

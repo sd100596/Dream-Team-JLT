@@ -4,6 +4,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import PdfViewerModal from './PdfViewerModal';
+import { alpha } from '@mui/material/styles';
 
 function VetBillList({ bills }) {
   const [pdfModal, setPdfModal] = useState({ open: false, pdfUrl: null, description: '' });
@@ -43,7 +44,7 @@ function VetBillList({ bills }) {
 
   const BillItem = ({ bill, isPending }) => (
     <Paper
-      sx={{
+      sx={(theme) => ({
         p: 2,
         mb: 2,
         display: 'flex',
@@ -51,13 +52,18 @@ function VetBillList({ bills }) {
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: 1,
-        borderLeft: `4px solid ${isPending ? '#E74C3C' : '#4ECDC4'}`,
-        bgcolor: isPending ? 'rgba(231, 76, 60, 0.04)' : 'rgba(78, 205, 196, 0.04)'
-      }}
+        borderLeft: `4px solid ${
+          isPending ? theme.palette.error.main : theme.palette.secondary.main
+        }`,
+        bgcolor: alpha(
+          isPending ? theme.palette.error.main : theme.palette.secondary.main,
+          theme.palette.mode === 'light' ? 0.04 : 0.12
+        ),
+      })}
     >
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flex: 1 }}>
         {isPending ? (
-          <WarningIcon sx={{ color: '#E74C3C' }} />
+          <WarningIcon sx={{ color: 'error.main' }} />
         ) : (
           <CheckCircleIcon sx={{ color: 'secondary.main' }} />
         )}
@@ -76,10 +82,10 @@ function VetBillList({ bills }) {
           <Tooltip title="View attached PDF">
             <IconButton 
               onClick={() => openPdf(bill.pdfUrl, bill.description)}
-              sx={{ 
-                color: '#E74C3C',
-                '&:hover': { bgcolor: 'rgba(231, 76, 60, 0.1)' }
-              }}
+              sx={(theme) => ({ 
+                color: theme.palette.error.main,
+                '&:hover': { bgcolor: alpha(theme.palette.error.main, theme.palette.mode === 'light' ? 0.1 : 0.2) }
+              })}
             >
               <PictureAsPdfIcon />
             </IconButton>
