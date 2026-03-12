@@ -4,6 +4,7 @@ import CustomAccordion from '../components/Accordion';
 import PetsIcon from '@mui/icons-material/Pets';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import { alpha } from '@mui/material/styles';
 
 function Landing() {
   const accordionItems = [
@@ -29,16 +30,39 @@ function Landing() {
     <Box>
       {/* Hero Section */}
       <Box
-        sx={{
-          background: 'linear-gradient(135deg, #FFF9F5 0%, #FFE8E8 50%, #E8F6F5 100%)',
+        sx={(theme) => ({
+          background:
+            theme.palette.mode === 'light'
+              ? 'linear-gradient(135deg, #FFF9F5 0%, #FFE8E8 50%, #E8F6F5 100%)'
+              : 'linear-gradient(135deg, #0F141A 0%, #151C24 45%, #0C2A2A 100%)',
           py: { xs: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
-        }}
+        })}
       >
         {/* Decorative circles */}
-        <Box sx={{ position: 'absolute', top: -50, right: -50, width: 200, height: 200, borderRadius: '50%', bgcolor: 'rgba(255,107,107,0.1)' }} />
-        <Box sx={{ position: 'absolute', bottom: -30, left: -30, width: 150, height: 150, borderRadius: '50%', bgcolor: 'rgba(78,205,196,0.15)' }} />
+        <Box
+          sx={(theme) => ({
+            position: 'absolute',
+            top: -50,
+            right: -50,
+            width: 200,
+            height: 200,
+            borderRadius: '50%',
+            bgcolor: alpha(theme.palette.primary.main, theme.palette.mode === 'light' ? 0.1 : 0.2),
+          })}
+        />
+        <Box
+          sx={(theme) => ({
+            position: 'absolute',
+            bottom: -30,
+            left: -30,
+            width: 150,
+            height: 150,
+            borderRadius: '50%',
+            bgcolor: alpha(theme.palette.secondary.main, theme.palette.mode === 'light' ? 0.15 : 0.25),
+          })}
+        />
         
         <Container maxWidth="lg">
           <Grid container spacing={4} alignItems="center">
@@ -100,7 +124,7 @@ function Landing() {
       </Box>
 
       {/* Stats Section */}
-      <Box sx={{ py: 8, bgcolor: 'white' }}>
+      <Box sx={{ py: 8, bgcolor: 'background.paper' }}>
         <Container maxWidth="lg">
           <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
@@ -117,7 +141,15 @@ function Landing() {
             </Grid>
             <Grid item xs={12} md={4}>
               <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" sx={{ fontWeight: 700, color: '#9B59B6' }}>15+</Typography>
+                <Typography
+                  variant="h2"
+                  sx={(theme) => ({
+                    fontWeight: 700,
+                    color: theme.palette.mode === 'light' ? '#9B59B6' : '#C9A5F5',
+                  })}
+                >
+                  15+
+                </Typography>
                 <Typography variant="h6" color="text.secondary">Active Volunteers</Typography>
               </Box>
             </Grid>
@@ -139,7 +171,7 @@ function Landing() {
       </Box>
 
       {/* CTA Section */}
-      <Box sx={{ py: 8, bgcolor: 'primary.main', color: 'white', textAlign: 'center' }}>
+      <Box sx={{ py: 8, bgcolor: 'primary.main', color: 'primary.contrastText', textAlign: 'center' }}>
         <Container maxWidth="md">
           <Typography variant="h4" sx={{ mb: 2, fontWeight: 600 }}>
             Ready to Meet Your New Best Friend?
@@ -153,12 +185,16 @@ function Landing() {
             variant="contained"
             size="large"
             sx={{ 
-              bgcolor: 'white', 
+              bgcolor: (theme) =>
+                theme.palette.mode === 'light' ? theme.palette.common.white : theme.palette.background.paper,
               color: 'primary.main',
               py: 1.5,
               px: 5,
               '&:hover': { 
-                bgcolor: 'rgba(255,255,255,0.9)',
+                bgcolor: (theme) =>
+                  theme.palette.mode === 'light'
+                    ? 'rgba(255,255,255,0.9)'
+                    : theme.palette.background.default,
                 transform: 'scale(1.05)'
               },
               transition: 'all 0.3s ease'
@@ -170,7 +206,14 @@ function Landing() {
       </Box>
 
       {/* Footer */}
-      <Box sx={{ py: 4, bgcolor: '#2D3436', color: 'white', textAlign: 'center' }}>
+      <Box
+        sx={(theme) => ({
+          py: 4,
+          bgcolor: theme.palette.mode === 'light' ? '#2D3436' : '#0B0F14',
+          color: 'common.white',
+          textAlign: 'center',
+        })}
+      >
         <Container>
           <Typography variant="body2" sx={{ opacity: 0.7 }}>
             © 2026 Dream Team JLT. All rights reserved. Made with ❤️ for cats.

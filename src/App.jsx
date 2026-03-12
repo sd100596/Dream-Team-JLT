@@ -5,10 +5,10 @@ import CatsGallery from './pages/CatsGallery';
 import CatDetail from './pages/CatDetail';
 import { Box } from '@mui/material';
 
-function App() {
+function App({ mode, onToggleMode }) {
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
-      <Navbar />
+      <Navbar mode={mode} onToggleMode={onToggleMode} />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/cats" element={<CatsGallery />} />
