@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Paper, Grid, Chip, IconButton, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -15,6 +16,10 @@ function CatDetail() {
   const cat = catsData.cats.find(c => c.id === id);
   
   const hasPendingBills = cat?.vetBills?.some(b => b.status === 'due' || b.status === 'unpaid');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [id]);
 
   if (!cat) {
     return (
