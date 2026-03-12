@@ -1,7 +1,6 @@
 const catModules = import.meta.glob('./cats/*/profile.json', { eager: true });
 const vetBillModules = import.meta.glob('./cats/*/vet_bills.json', { eager: true });
 const photoModules = import.meta.glob('./cats/*/photo.{jpg,jpeg,png}', { eager: true, query: '?url', import: 'default' });
-const pdfModules = import.meta.glob('./cats/*/*.pdf', { eager: true, query: '?url', import: 'default' });
 
 const cats = Object.keys(catModules).map((path) => {
   const folderName = path.split('/')[2];
@@ -20,23 +19,14 @@ const cats = Object.keys(catModules).map((path) => {
     }
   }
 
-  // Find PDFs in folder
-  const pdfFiles = {};
-  Object.keys(pdfModules).forEach(pdfPath => {
-    const fileName = pdfPath.split('/').pop(); // Keep original case
-    pdfFiles[fileName] = String(pdfModules[pdfPath]);
-  });
-
-  // Generate bill data - use pdf field if present, otherwise no PDF
-  const vetBills = rawVetBills.map((bill, index) => {
-    const billId = `${folderName}-bill-${index + 1}`;
-    const pdfFileName = bill?.pdf ? `${bill.pdf}` : null;
-    return {
-      ...bill,
-      id: billId,
-      pdfUrl: pdfFileName && pdfFiles[pdfFileName] ? pdfFiles[pdfFileName] : null
-    };
-  });
+   // Generate bill data - no PDF field anymore
+   const vetBills = rawVetBills.map((bill, index) => {
+     const billId = `${folderName}-bill-${index + 1}`;
+     return {
+       ...bill,
+       id: billId
+     };
+   });
 
   // Use folder name as id and name (capitalized)
   const formattedName = folderName

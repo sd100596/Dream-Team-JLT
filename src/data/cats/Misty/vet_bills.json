@@ -1,13 +1,11 @@
 [
   {
-    "pdf": "Invoice - 2313 - BIOVET LAB DMCC.pdf",
     "description": "Misty Invoice 11 February 2026 Vaccine, Meds",
     "date": "2026-02-11",
     "amount": 153.00,
     "status": "paid"
   },
 {
-    "pdf": "Invoice - 2200 - BIOVET LAB DMCC.pdf",
     "description": "Misty Invoice 27 January 2026 Consultation, TNR, Hospitalisation, Meds",
     "date": "2026-01.27",
     "amount": 518.00,
