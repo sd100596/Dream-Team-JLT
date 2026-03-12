@@ -1,5 +1,6 @@
 import { Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
 import ErrorIcon from '@mui/icons-material/Error';
+import ScissorsIcon from '@mui/icons-material/ContentCut';
 import { useNavigate } from 'react-router-dom';
 import { alpha } from '@mui/material/styles';
 
@@ -76,6 +77,30 @@ function CatCard({ cat }) {
             aria-label="Has pending vet bills"
           >
             <ErrorIcon sx={{ color: 'inherit', fontSize: 18 }} />
+          </Box>
+        )}
+        
+        {/* TNR Badge */}
+        {cat.tnr && (
+          <Box
+            sx={(theme) => ({
+              position: 'absolute',
+              top: 12,
+              left: 12,
+              bgcolor: 'primary.main',
+              color: 'primary.contrastText',
+              borderRadius: '50%',
+              width: 28,
+              height: 28,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: `0 2px 6px ${alpha(theme.palette.primary.main, 0.3)}`,
+              zIndex: 10,
+            })}
+            aria-label="TNR Status"
+          >
+            <ScissorsIcon fontSize="small" />
           </Box>
         )}
       </Box>

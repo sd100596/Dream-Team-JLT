@@ -3,6 +3,7 @@ import { Container, Typography, Box, Paper, Grid, Chip, IconButton, Button } fro
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ErrorIcon from '@mui/icons-material/Error';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VetBillList from '../components/VetBillList';
 import catsData from '../data/cats';
 import { alpha } from '@mui/material/styles';
@@ -117,11 +118,12 @@ function CatDetail() {
                 {cat.name}
               </Typography>
               
-              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
-                {cat.breed && <Chip label={cat.breed} variant="outlined" color="secondary" />}
-                {cat.gender && <Chip label={cat.gender} variant="outlined" color="primary" />}
-                {cat.age && <Chip label={`${cat.age} years old`} variant="outlined" />}
-              </Box>
+               <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', mb: 3 }}>
+                 {cat.breed && <Chip label={cat.breed} variant="outlined" color="secondary" />}
+                 {cat.gender && <Chip label={cat.gender} variant="outlined" color="primary" />}
+                 {cat.age && <Chip label={`${cat.age} years old`} variant="outlined" />}
+                 {cat.tnr && <Chip label="TNR" icon={<CheckCircleIcon fontSize="small" />} color="success" />}
+               </Box>
 
               <Typography variant="h6" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
                 {cat.bio}

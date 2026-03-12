@@ -4,5 +4,6 @@
   "age": "",
   "breed": "DSH/Black",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr": true
 }
