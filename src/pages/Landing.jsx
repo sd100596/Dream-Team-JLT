@@ -183,7 +183,27 @@ function Landing() {
       </Box>
 
       {/* CTA Section */}
-      <Box sx={{ py: 8, bgcolor: 'primary.main', color: 'primary.contrastText', textAlign: 'center' }}>
+      <Box
+        sx={(theme) => ({
+          py: 8,
+          textAlign: 'center',
+          color:
+            theme.palette.mode === 'light'
+              ? theme.palette.primary.contrastText
+              : theme.palette.text.primary,
+          background:
+            theme.palette.mode === 'light'
+              ? theme.palette.primary.main
+              : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.22)} 0%, ${alpha(
+                  theme.palette.secondary.main,
+                  0.18
+                )} 60%, ${alpha(theme.palette.primary.dark, 0.28)} 100%)`,
+          borderTop:
+            theme.palette.mode === 'light'
+              ? 'none'
+              : `1px solid ${alpha(theme.palette.primary.main, 0.25)}`,
+        })}
+      >
         <Container maxWidth="md">
           <Typography variant="h4" sx={{ mb: 2, fontWeight: 600 }}>
             Ready to Meet Your New Best Friend?
@@ -198,15 +218,18 @@ function Landing() {
             size="large"
             sx={{ 
               bgcolor: (theme) =>
-                theme.palette.mode === 'light' ? theme.palette.common.white : theme.palette.background.paper,
-              color: 'primary.main',
+                theme.palette.mode === 'light' ? theme.palette.common.white : theme.palette.primary.main,
+              color: (theme) =>
+                theme.palette.mode === 'light'
+                  ? theme.palette.primary.main
+                  : theme.palette.primary.contrastText,
               py: 1.5,
               px: 5,
               '&:hover': { 
                 bgcolor: (theme) =>
                   theme.palette.mode === 'light'
                     ? 'rgba(255,255,255,0.9)'
-                    : theme.palette.background.default,
+                    : theme.palette.primary.light,
                 transform: 'scale(1.05)'
               },
               transition: 'all 0.3s ease'
