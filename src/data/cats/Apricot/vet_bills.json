@@ -2,8 +2,8 @@
   {
     "id": "bill-whiskers-001",
     "description": "Dental cleaning",
-    "dueDate": "2026-05-01",
-    "amountDue": 200,
+    "date": "2026-05-01",
+    "amount": 200,
     "status": "due"
   }
 ]

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Typography, Paper, Chip, IconButton, Tooltip, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -10,9 +10,32 @@ import { alpha } from '@mui/material/styles';
 
 function VetBillList({ bills }) {
   const [supportModal, setSupportModal] = useState({ open: false, description: '' });
+  const [showAllBills, setShowAllBills] = useState(false);
    
   const pendingBills = bills?.filter(b => b.status === 'due' || b.status === 'unpaid') || [];
   const paidBills = bills?.filter(b => b.status === 'paid') || [];
+  const totalBills = bills?.length || 0;
+  const maxVisibleBills = 2;
+  const shouldCollapse = totalBills > maxVisibleBills;
+
+  useEffect(() => {
+    setShowAllBills(false);
+  }, [totalBills]);
+
+  const getVisibleBills = () => {
+    if (!shouldCollapse || showAllBills) {
+      return { pending: pendingBills, paid: paidBills };
+    }
+
+    if (pendingBills.length >= maxVisibleBills) {
+      return { pending: pendingBills.slice(0, maxVisibleBills), paid: [] };
+    }
+
+    const remaining = maxVisibleBills - pendingBills.length;
+    return { pending: pendingBills, paid: paidBills.slice(0, remaining) };
+  };
+
+  const { pending: visiblePendingBills, paid: visiblePaidBills } = getVisibleBills();
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -114,25 +137,37 @@ return (
          billDescription={supportModal.description}
        />
        
-       {pendingBills.length > 0 && (
+       {visiblePendingBills.length > 0 && (
          <Box sx={{ mb: 4 }}>
            <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
              Pending Bills
            </Typography>
-           {pendingBills.map((bill) => (
+           {visiblePendingBills.map((bill) => (
              <BillItem key={bill.id} bill={bill} isPending={true} />
            ))}
          </Box>
        )}
 
-      {paidBills.length > 0 && (
+      {visiblePaidBills.length > 0 && (
         <Box>
           <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
             Paid Bills
           </Typography>
-          {paidBills.map((bill) => (
+          {visiblePaidBills.map((bill) => (
             <BillItem key={bill.id} bill={bill} isPending={false} />
           ))}
+        </Box>
+      )}
+
+      {shouldCollapse && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => setShowAllBills((prev) => !prev)}
+          >
+            {showAllBills ? 'Show fewer bills' : 'Show all bills'}
+          </Button>
         </Box>
       )}
     </Box>
