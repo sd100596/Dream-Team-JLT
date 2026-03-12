@@ -44,18 +44,19 @@ const cats = Object.keys(catModules).map((path) => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  return {
-    id: folderName,
-    name: formattedName,
-    bio: profile?.bio || '',
-    location: profile?.location || '',
-    age: profile?.age,
-    breed: profile?.breed,
-    gender: profile?.gender,
-    notes: profile?.notes || [],
-    photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
-    vetBills: vetBills || [],
-  };
+   return {
+     id: folderName,
+     name: formattedName,
+     bio: profile?.bio || '',
+     location: profile?.location || '',
+     age: profile?.age,
+     breed: profile?.breed,
+     gender: profile?.gender,
+     notes: profile?.notes || [],
+     photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
+     vetBills: vetBills || [],
+     tnr: profile?.tnr || false,
+   };
 });
 
 export default { cats };
