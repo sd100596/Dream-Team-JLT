@@ -10,19 +10,31 @@ function Landing() {
   const accordionItems = [
     {
       title: 'Our Mission',
-      content: 'We are a community-driven cat support group dedicated to helping stray and abandoned cats in our neighborhood. We provide food, medical care, and find loving homes for cats in need. Every dhiram goes directly to caring for our feline friends.'
+      content: [
+        'We are a community-driven cat welfare group committed to supporting stray and dumped cats in our neighborhood. Through TNR, we ensure a healthier, more balanced community cat population over time. If you see a cat with a small snip on its left ear, this indicates that the cat has been neutured.',
+        'We also provide food, cover vet costs when needed and work to place vulnerable cats in safe, loving, forever homes.',
+        'We operate entirely on goodwill and donations - every single dirham received goes directly toward the care and wellbeing of our feline friends.'
+      ]
     },
     {
       title: 'How We Help',
-      content: 'Within our Dream Team Community we look after 40+ cats. We have 8 feeding stations available with dry cat food and fresh water and we endeavour to regularly provide our community cats with wet food. We operate through a network of volunteers who feed, TNR (trap, neuter, release), and socialize community cats. We maintain a roster of adoptable cats, cover veterinary expenses through community donations, and endeavor to find forever homes when required, either within the UAE or overseas.'
+      content: [
+        'Within our Dream Team Community we currently care for over 40 cats between Clusters O and R, as well as the surrounding areas. We have eight feeding stations, all of which are regularly replenished with dry cat food and fresh water, and we endeavour to provide wet food on a daily basis.',
+        'Our work is made possible through a dedicated network of feeder volunteers. We cover vet bills through community donations and actively seek forever homes either within the UAE or internationally, fundraising towards flight expenses, where required.'
+      ]
     },
     {
       title: 'How You Can Help',
-      content: 'There are plenty of ways you can help! We have a Wish List on Amazon to help supply cat food for our many hungry cats. We always need help with our outstanding cat bills and this can be paid directly to the the vets by credit card or cash. You can help by fostering or adopting a cat in need from us or even volunteering your time to help with feeding, or simply spreading the word about our mission. Every bit of help makes a difference!'
+      content: [
+        'There are many ways you can support our work. We have an Amazon Wish List to help keep our feeding stations stocked for the many hungry cats we care for. We are also always grateful for support with outstanding veterinary bills, which can be paid directly to the vets by credit card or cash.',
+        'You can also help by fostering or adopting a cat in need, volunteering your time with feeding or wet-food rounds, or simply spreading the word about what we do. Every contribution, big or small, truly makes a difference.'
+      ]
     },
     {
       title: 'Success Stories',
-      content: 'Since the beginning of 2025, we have found homes for 9 cats, covered over AED 55,000 in veterinary bills, and TNR\'d 18 cats. Our TNR program is extremely important to us by supporting the health and welfare of our stray cat community. Each cat tells a story of transformation.'
+      content: [
+        'Our Dream Team Group has rehomed numerous cats (you can see their details on the Our Cats Page). Since the beginning of 2025, we have covered over AED 65,000 in vets bills, and TNR\'d 18 cats, supporting a healthier stray cat community. Every cat tells a story.'
+      ]
     }
   ];
 

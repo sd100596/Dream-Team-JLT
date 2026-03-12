@@ -18,6 +18,8 @@ const StyledAccordion = styled((props) => (
 }));
 
 function AccordionItem({ title, children, defaultExpanded = false }) {
+  const paragraphs = Array.isArray(children) ? children : [children];
+
   return (
     <StyledAccordion defaultExpanded={defaultExpanded}>
       <AccordionSummary
@@ -45,9 +47,22 @@ function AccordionItem({ title, children, defaultExpanded = false }) {
         </Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ p: 4, bgcolor: 'background.paper' }}>
-        <Typography variant="h6" color="text.secondary" sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}>
-          {children}
-        </Typography>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          {paragraphs.map((paragraph, index) =>
+            typeof paragraph === 'string' ? (
+              <Typography
+                key={index}
+                variant="h6"
+                color="text.secondary"
+                sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}
+              >
+                {paragraph}
+              </Typography>
+            ) : (
+              <Box key={index}>{paragraph}</Box>
+            )
+          )}
+        </Box>
       </AccordionDetails>
     </StyledAccordion>
   );

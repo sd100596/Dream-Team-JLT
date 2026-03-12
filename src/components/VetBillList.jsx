@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { Box, Typography, Paper, Chip, IconButton, Tooltip } from '@mui/material';
+import { Box, Typography, Paper, Chip, IconButton, Tooltip, Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import PdfViewerModal from './PdfViewerModal';
+import SupportIcon from '@mui/icons-material/Support';
+import PaymentIcon from '@mui/icons-material/Payment';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { alpha } from '@mui/material/styles';
 
 function VetBillList({ bills }) {
-  const [pdfModal, setPdfModal] = useState({ open: false, pdfUrl: null, description: '' });
-  
+  const [supportModal, setSupportModal] = useState({ open: false, description: '' });
+   
   const pendingBills = bills?.filter(b => b.status === 'due' || b.status === 'unpaid') || [];
   const paidBills = bills?.filter(b => b.status === 'paid') || [];
 
@@ -27,8 +29,12 @@ function VetBillList({ bills }) {
     }).format(amount);
   };
 
-  const openPdf = (pdfUrl, description) => {
-    setPdfModal({ open: true, pdfUrl, description });
+  const openSupportModal = (description) => {
+    setSupportModal({ open: true, description });
+  };
+
+  const closeSupportModal = () => {
+    setSupportModal({ open: false, description: '' });
   };
 
   if (!bills || bills.length === 0) {
@@ -77,49 +83,47 @@ function VetBillList({ bills }) {
         </Box>
       </Box>
       
-      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-        {bill.pdfUrl && (
-          <Tooltip title="View attached PDF">
-            <IconButton 
-              onClick={() => openPdf(bill.pdfUrl, bill.description)}
-              sx={(theme) => ({ 
-                color: theme.palette.error.main,
-                '&:hover': { bgcolor: alpha(theme.palette.error.main, theme.palette.mode === 'light' ? 0.1 : 0.2) }
-              })}
-            >
-              <PictureAsPdfIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-        <Chip 
-          label={formatCurrency(bill.amount)} 
-          color={isPending ? 'error' : 'success'} 
-          variant="outlined"
-          sx={{ fontWeight: 600 }}
-        />
-      </Box>
-    </Paper>
+       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          {bill.status === 'due' && (
+            <Tooltip title="Help or donate to support this cat">
+              <Chip
+                icon={<SupportIcon fontSize="small" />}
+                label="Help"
+                onClick={() => openSupportModal(bill.description)}
+                clickable
+                color="success"
+                sx={{ fontWeight: 600 }}
+              />
+            </Tooltip>
+          )}
+          <Chip 
+            label={formatCurrency(bill.amount)} 
+            color={isPending ? 'error' : 'success'} 
+            variant="outlined"
+            sx={{ fontWeight: 600 }}
+            />
+          </Box>
+        </Paper>
   );
 
-  return (
-    <Box>
-      <PdfViewerModal 
-        open={pdfModal.open}
-        onClose={() => setPdfModal({ ...pdfModal, open: false })}
-        pdfUrl={pdfModal.pdfUrl}
-        billDescription={pdfModal.description}
-      />
-      
-      {pendingBills.length > 0 && (
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
-            Pending Bills
-          </Typography>
-          {pendingBills.map((bill) => (
-            <BillItem key={bill.id} bill={bill} isPending={true} />
-          ))}
-        </Box>
-      )}
+return (
+     <Box>
+       <SupportModal 
+         open={supportModal.open}
+         onClose={closeSupportModal}
+         billDescription={supportModal.description}
+       />
+       
+       {pendingBills.length > 0 && (
+         <Box sx={{ mb: 4 }}>
+           <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
+             Pending Bills
+           </Typography>
+           {pendingBills.map((bill) => (
+             <BillItem key={bill.id} bill={bill} isPending={true} />
+           ))}
+         </Box>
+       )}
 
       {paidBills.length > 0 && (
         <Box>
@@ -136,3 +140,89 @@ function VetBillList({ bills }) {
 }
 
 export default VetBillList;
+
+// Support Modal Component
+function SupportModal({ open, onClose, billDescription }) {
+  return (
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
+        <DialogTitle sx={{ fontFamily: '"Fredoka", sans-serif' }}>
+          Help Support {billDescription || 'This Cat'}
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Thank you for wanting to help! Your contributions make a real difference in the lives of our community cats.
+          </Typography>
+          
+          {/* Donation Options */}
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
+              Ways to Contribute:
+            </Typography>
+            
+            {/* Placeholder donation links - you can replace these with actual links */}
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, mb: 2 }}>
+              <Button 
+                variant="contained"
+                startIcon={<PaymentIcon fontSize="small" />}
+                sx={{ width: '100%', justifyContent: 'start' }}
+                onClick={() => { /* TODO: Add actual donation link handler */ }}
+              >
+                Donate via PayPal (Placeholder)
+              </Button>
+              <Button 
+                variant="contained"
+                startIcon={<AttachMoneyIcon fontSize="small" />}
+                sx={{ width: '100%', justifyContent: 'start' }}
+                onClick={() => { /* TODO: Add actual donation link handler */ }}
+              >
+                Bank Transfer Details (Placeholder)
+              </Button>
+              <Button 
+                variant="outlined"
+                startIcon={<FavoriteIcon fontSize="small" />}
+                sx={{ width: '100%', justifyContent: 'start' }}
+                onClick={() => { /* TODO: Add actual donation link handler */ }}
+              >
+                Sponsor This Cat (Placeholder)
+              </Button>
+            </Box>
+          </Box>
+          
+          {/* Contact Information */}
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
+              Contact Us:
+            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.5 }}>
+              <Typography variant="body2">
+                Email: <a href="mailto:dreamteamjlt@example.com">dreamteamjlt@example.com</a>
+              </Typography>
+              <Typography variant="body2">
+                Phone: +971 50 123 4567
+              </Typography>
+              <Typography variant="body2">
+                Location: JLT, Dubai, UAE
+              </Typography>
+            </Box>
+          </Box>
+          
+          {/* Message */}
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="body2" color="text.secondary" sx={{ fontStyle: 'italic' }}>
+              Every contribution, no matter the size, helps us provide food, medical care, and love to cats in need.
+            </Typography>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onClose} variant="outlined">
+            Close
+          </Button>
+          <Button onClick={onClose} variant="contained" color="primary">
+            I'll Help
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+  );
+}

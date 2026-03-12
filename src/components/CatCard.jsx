@@ -87,15 +87,15 @@ function CatCard({ cat }) {
               position: 'absolute',
               top: 12,
               left: 12,
-              bgcolor: 'primary.main',
-              color: 'primary.contrastText',
+              bgcolor: 'success.main',
+              color: 'success.contrastText',
               borderRadius: '50%',
               width: 28,
               height: 28,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: `0 2px 6px ${alpha(theme.palette.primary.main, 0.3)}`,
+              boxShadow: `0 2px 6px ${alpha(theme.palette.success.main, 0.3)}`,
               zIndex: 10,
             })}
             aria-label="TNR Status"
