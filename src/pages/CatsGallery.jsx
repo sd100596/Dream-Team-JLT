@@ -16,11 +16,15 @@ function CatsGallery() {
     tnrOnly: false,
     gender: ''
   });
+  const hasActiveFilters = filters.tnrOnly || !!filters.gender;
 
   // Collapsible section states
   const [strayExpanded, setStrayExpanded] = useState(true);
   const [homedExpanded, setHomedExpanded] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const [filterIconShift, setFilterIconShift] = useState(0);
+  const filterControlsRef = useRef(null);
+  const filterIconRef = useRef(null);
 
   // Scroll position - save on scroll
   useEffect(() => {
@@ -29,6 +33,24 @@ function CatsGallery() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useLayoutEffect(() => {
+    const controlsWidth = filterControlsRef.current?.offsetWidth || 0;
+    const iconWidth = filterIconRef.current?.offsetWidth || 0;
+    const shift = Math.max(0, controlsWidth - iconWidth);
+    setFilterIconShift(shift);
+  }, [showFilters, hasActiveFilters]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const controlsWidth = filterControlsRef.current?.offsetWidth || 0;
+      const iconWidth = filterIconRef.current?.offsetWidth || 0;
+      const shift = Math.max(0, controlsWidth - iconWidth);
+      setFilterIconShift(shift);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Restore scroll without visual jump (POP or explicit restore flag)
@@ -72,8 +94,6 @@ function CatsGallery() {
     }
     return true;
   });
-
-  const hasActiveFilters = filters.tnrOnly || !!filters.gender;
 
   const clearFilters = () => {
     setFilters({
@@ -150,8 +170,7 @@ function CatsGallery() {
                   gap: 2,
                   width: { xs: '100%', md: 360 },
                   minHeight: 48,
-                  position: 'relative',
-                  overflow: 'hidden'
+                  position: 'relative'
                 }}
                 onClick={(e) => e.stopPropagation()}
               >
@@ -160,16 +179,17 @@ function CatsGallery() {
                     position: 'absolute',
                     right: 0,
                     top: '50%',
-                    transform: 'translateY(-50%)',
+                    transform: `translateY(-50%) translateX(${showFilters ? -filterIconShift : 0}px)`,
                     opacity: showFilters ? 0 : 1,
                     pointerEvents: showFilters ? 'none' : 'auto',
-                    transition: 'opacity 200ms ease'
+                    transition: 'opacity 20ms ease, transform 20ms ease'
                   }}
                 >
                   <IconButton
                     size="small"
                     aria-label="Show filters"
                     onClick={() => setShowFilters(true)}
+                    ref={filterIconRef}
                   >
                     <FilterListAltIcon />
                   </IconButton>
@@ -179,13 +199,13 @@ function CatsGallery() {
                     position: 'absolute',
                     right: 0,
                     top: '50%',
-                    transform: 'translateY(-50%)',
+                    transform: `translateY(-50%) translateX(${showFilters ? 0 : 8}px)`,
                     opacity: showFilters ? 1 : 0,
                     pointerEvents: showFilters ? 'auto' : 'none',
-                    transition: 'opacity 200ms ease'
+                    transition: 'opacity 20ms ease, transform 1000ms ease'
                   }}
                 >
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Box ref={filterControlsRef} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <FormControlLabel
                       control={
                         <Checkbox 
