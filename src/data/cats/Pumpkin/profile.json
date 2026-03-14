@@ -4,5 +4,6 @@
   "age": 3,
   "breed": "Arabian Mau",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }
