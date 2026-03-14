@@ -1,16 +1,1 @@
-[
-  {
-    "id": "bill-luna-001",
-    "description": "Spay surgery",
-    "dueDate": "2026-04-20",
-    "amountDue": 150,
-    "status": "due"
-  },
-  {
-    "id": "bill-luna-002",
-    "description": "Flea treatment",
-    "dueDate": "2026-03-10",
-    "amountDue": 35,
-    "status": "due"
-  }
-]
+[]

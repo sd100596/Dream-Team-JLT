@@ -4,5 +4,6 @@
   "age": 8,
   "breed": "Tabby",
   "gender": "Female",
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }

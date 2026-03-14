@@ -4,5 +4,6 @@
   "age": 5,
   "breed": "Domestic Longhair",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }

@@ -4,5 +4,6 @@
   "age": 4,
   "breed": "DSH/White & tabby",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }
