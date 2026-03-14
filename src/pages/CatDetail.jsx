@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Paper, Grid, Chip, IconButton, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import HomeIcon from '@mui/icons-material/Home';
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import VetBillList from '../components/VetBillList';
@@ -12,6 +13,10 @@ import { alpha } from '@mui/material/styles';
 function CatDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const handleBackToCats = () => {
+    sessionStorage.setItem('catsGalleryRestoreScroll', 'true');
+    navigate('/cats');
+  };
   
   const cat = catsData.cats.find(c => c.id === id);
   
@@ -27,7 +32,7 @@ function CatDetail() {
         <Typography variant="h4" color="error">
           Cat not found
         </Typography>
-        <Button onClick={() => navigate('/cats')} sx={{ mt: 2 }}>
+        <Button onClick={handleBackToCats} sx={{ mt: 2 }}>
           Back to Cats
         </Button>
       </Container>
@@ -38,7 +43,7 @@ function CatDetail() {
     <Box sx={{ py: 6, minHeight: '100vh' }}>
       <Container maxWidth="lg">
         <IconButton 
-          onClick={() => navigate('/cats')} 
+          onClick={handleBackToCats} 
           sx={{ mb: 3 }}
           aria-label="Back to cats"
         >
@@ -140,23 +145,36 @@ function CatDetail() {
               sx={(theme) => ({
                 p: 3,
                 mb: 4,
-                bgcolor: alpha(
-                  theme.palette.secondary.main,
-                  theme.palette.mode === 'light' ? 0.08 : 0.18
-                ),
+                bgcolor: cat.location === 'Homed' 
+                  ? alpha(theme.palette.success.main, theme.palette.mode === 'light' ? 0.1 : 0.2)
+                  : alpha(theme.palette.secondary.main, theme.palette.mode === 'light' ? 0.08 : 0.18),
               })}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 32 }} />
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary" sx={{ fontWeight: 600 }}>
-                    Location
-                  </Typography>
-                  <Typography variant="body1" fontWeight={500}>
-                    {cat.location}
-                  </Typography>
+              {cat.location === 'Homed' ? (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <HomeIcon sx={{ color: 'success.main', fontSize: 32 }} />
+                  <Box>
+                    <Typography variant="subtitle2" color="text.secondary" sx={{ fontWeight: 600 }}>
+                      Homed
+                    </Typography>
+                    <Typography variant="body1" fontWeight={500} color="success.main">
+                      Lives indoors with a loving family
+                    </Typography>
+                  </Box>
                 </Box>
-              </Box>
+              ) : (
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <LocationOnIcon sx={{ color: 'secondary.main', fontSize: 32 }} />
+                  <Box>
+                    <Typography variant="subtitle2" color="text.secondary" sx={{ fontWeight: 600 }}>
+                      Location
+                    </Typography>
+                    <Typography variant="body1" fontWeight={500}>
+                      {cat.location}
+                    </Typography>
+                  </Box>
+                </Box>
+              )}
             </Paper>
 
             {/* Notes */}

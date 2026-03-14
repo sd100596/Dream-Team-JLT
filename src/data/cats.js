@@ -34,19 +34,29 @@ const cats = Object.keys(catModules).map((path) => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-   return {
-     id: folderName,
-     name: formattedName,
-     bio: profile?.bio || '',
-     location: profile?.location || '',
-     age: profile?.age,
-     breed: profile?.breed,
-     gender: profile?.gender,
-     notes: profile?.notes || [],
-     photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
-     vetBills: vetBills || [],
-     tnr: profile?.tnr || false,
-   };
+   // Compute status based on location only (TNR is a separate flag)
+    const isHomed = profile?.location === 'Homed';
+    const status = isHomed ? 'homed' : 'stray';
+    
+    // Check if cat has pending bills
+    const hasPendingBills = vetBills?.some(bill => bill.status === 'due' || bill.status === 'unpaid') || false;
+
+    return {
+      id: folderName,
+      name: formattedName,
+      bio: profile?.bio || '',
+      location: profile?.location || '',
+      age: profile?.age,
+      breed: profile?.breed,
+      gender: profile?.gender,
+      notes: profile?.notes || [],
+      photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
+      vetBills: vetBills || [],
+      tnr: profile?.tnr || false,
+      // Computed properties for filtering
+      status,
+      hasPendingBills
+    };
 });
 
 export default { cats };
