@@ -150,8 +150,7 @@ function CatsGallery() {
                   gap: 2,
                   width: { xs: '100%', md: 360 },
                   minHeight: 48,
-                  position: 'relative',
-                  overflow: 'hidden'
+                  position: 'relative'
                 }}
                 onClick={(e) => e.stopPropagation()}
               >
