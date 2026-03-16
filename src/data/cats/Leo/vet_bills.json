@@ -1,17 +1,7 @@
 [
   {
-    "id": "bill-sugar-001",
-    "description": "Vaccination update",
-    "date": "2026-04-15",
-    "amount": 45,
-    "status": "due"
-  },
-  {
-    "id": "bill-sugar-002",
-    "description": "Annual checkup",
-    "ate": "2026-03-01",
-    "amount": 85,
-    "status": "paid",
-    "paidDate": "2026-02-28"
+    "description": "Consultation, bloods, Hemoparasite, IV fluids, various tests and medication",
+    "amount": 4253.14,
+    "status": "unpaid"
   }
 ]
