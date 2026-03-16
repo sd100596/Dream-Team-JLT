@@ -1,8 +1,9 @@
 {
   "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
   "location": "Maple Avenue, near the library",
-  "age": 7,
   "breed": "Tabby",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg"
 }
+

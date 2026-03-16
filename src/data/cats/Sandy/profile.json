@@ -1,9 +1,10 @@
 {
   "bio": "Rupert was first spotted in mid-January 2026. He was really friendly, so we immediately trapped him for his TNR surgery. He loves strokes and seems to get on OK with the fur-friends in his area.",
   "location": "He is based in between Clusters Q and R",
-  "age": "",
   "breed": "DSH/Black",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr": true
 }
+

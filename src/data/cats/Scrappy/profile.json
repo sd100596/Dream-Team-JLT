@@ -1,9 +1,10 @@
 {
   "bio": "Scrappy has been one of our neighbourhood cats since he was a scrappy kitten back in 2017! He was called Scrappy before because he was so small, but he has earned his name for for another reason, as he likes to get into scraps with other cats unfortunately!",
   "location": "He has always been around Cluster Q but now found him home in the car park under Saba Tower 3.",
-  "age": 9,
   "breed": "DSH/White & Tabby",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr": true
 }
+

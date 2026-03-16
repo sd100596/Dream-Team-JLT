@@ -1,9 +1,10 @@
 {
   "bio": "Misty was first spotted in mid-Jan 2026. She was terrified but that meant she was attacking some of the local residents. We managed to trap her and got her to the vets and she has been in paid/fosters since. She is set to fly to Scotland when the flights allow.",
   "location": "Inside at the moment but was downstairs from Carrefour between Clusters P and O",
-  "age": "1",
   "breed": "Domestic Long Hair/Grey",
   "gender": "Female",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr":true
 }
+

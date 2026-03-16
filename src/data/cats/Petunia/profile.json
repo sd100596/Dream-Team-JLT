@@ -1,9 +1,10 @@
 {
   "bio": "Chubby cheeks, big purr, loves tuna treats. This fluffy boy is a cuddle monster.",
   "location": "City park bench by the fountain",
-  "age": 5,
   "breed": "Domestic Longhair",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr":true
 }
+

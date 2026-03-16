@@ -1,8 +1,10 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Cherry is a new kitten, first spotted in January 2026. She is part of the new 'fruit salad' gang. Super scared, but we are trying to gain her trust.",
+  "location": "Behind the bushes down from Carrefour Cluster P.",
+  "breed": "DSH/Tabby & White",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": false
 }
+

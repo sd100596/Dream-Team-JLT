@@ -1,9 +1,10 @@
 {
   "bio": "Pecan was one of two tiny kittens who were found in Cluster P in August 2023.  He was adopted in November 2023 and loves life indoors. Since being adopted, he has come out of his shell more. He loves to sunbathe on the balcony, chase his laser mouse  and eat dreamies.",
   "location": "Homed",
-  "age": 3,
   "breed": "Arabian Mau",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr":true
 }
+

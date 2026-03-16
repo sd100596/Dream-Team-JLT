@@ -14,9 +14,10 @@ function CatsGallery() {
   // Filter states (only for stray cats)
   const [filters, setFilters] = useState({
     tnrOnly: false,
+    adoptableOnly: false,
     gender: ''
   });
-  const hasActiveFilters = filters.tnrOnly || !!filters.gender;
+  const hasActiveFilters = filters.tnrOnly || filters.adoptableOnly || !!filters.gender;
 
   // Collapsible section states
   const [strayExpanded, setStrayExpanded] = useState(true);
@@ -88,6 +89,10 @@ function CatsGallery() {
     if (filters.tnrOnly && !cat.tnr) {
       return false;
     }
+    // Adoptable filter
+    if (filters.adoptableOnly && !cat.adoptable) {
+      return false;
+    }
     // Gender filter
     if (filters.gender && cat.gender !== filters.gender) {
       return false;
@@ -98,6 +103,7 @@ function CatsGallery() {
   const clearFilters = () => {
     setFilters({
       tnrOnly: false,
+      adoptableOnly: false,
       gender: ''
     });
     setShowFilters(false);
@@ -214,7 +220,18 @@ function CatsGallery() {
                           onChange={(e) => setFilters(prev => ({ ...prev, tnrOnly: e.target.checked }))}
                         />
                       }
-                      label="TNR'd only"
+                      label="TNR'd"
+                      sx={{ mr: 2 }}
+                    />
+                    <FormControlLabel
+                      control={
+                        <Checkbox 
+                          size="small"
+                          checked={filters.adoptableOnly}
+                          onChange={(e) => setFilters(prev => ({ ...prev, adoptableOnly: e.target.checked }))}
+                        />
+                      }
+                      label="Adoptable"
                       sx={{ mr: 2 }}
                     />
                     <FormControl size="small" sx={{ minWidth: 100 }}>

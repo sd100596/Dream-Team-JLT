@@ -1,0 +1,14 @@
+[
+  {
+    "description": "Consultation, rabies, microchip",
+    "date": "2026-03-09",
+    "amount": 183.75,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH Vaccine, worming, nail trimming",
+    "date": "2026-03-04",
+    "amount": 438.99,
+    "status": "paid"
+  }
+]

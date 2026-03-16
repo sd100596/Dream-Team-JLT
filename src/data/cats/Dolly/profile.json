@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Dolly is a feisty cat who will certainly hold her own with the other cats in the area! She was first seen in 2019 and when she spent the night inside before her neutering, she literally ran around the walls of the small bathroom!",
+  "location": "Usually near the Mind & Body Salon of Cluster O",
+  "breed": "Calico",
+  "gender": "Female",
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr":true
 }
