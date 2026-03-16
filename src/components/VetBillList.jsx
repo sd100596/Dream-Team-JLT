@@ -101,7 +101,7 @@ function VetBillList({ bills }) {
             {bill.description}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {isPending ? `Due: ${formatDate(bill.date)}` : `Paid: ${formatDate(bill.date)}`}
+            {bill.date && (isPending ? `Due: ${formatDate(bill.date)}` : `Paid: ${formatDate(bill.date)}`)}
           </Typography>
         </Box>
       </Box>
