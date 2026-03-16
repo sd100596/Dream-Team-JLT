@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "description": "Various medication",
+    "date": "2025-05-20",
+    "amount": 546.21,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, x-ray, bloods, nasal drops, various medication",
+    "date": "2025-05-14",
+    "amount": 662.56,
+    "status": "paid"
+  },
+  {
+    "description": "Pentosan injection",
+    "date": "2025-04-15",
+    "amount": 68.25,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH Vaccine",
+    "date": "2025-04-05",
+    "amount": 99.75,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, rabies, municipality tag",
+    "date": "2025-04-01",
+    "amount": 199.5,
+    "status": "paid"
+  },
+  {
+    "description": "Pentosan injection, microchip",
+    "date": "2025-03-25",
+    "amount": 177.54,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, x-ray, nursing care, medical bath, PCH, FIV/FELV, worming and other medication",
+    "date": "2025-03-08",
+    "amount": 2211.1,
+    "status": "paid"
+  }
+]

@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "description": "Consultation, Dental extraction, various medication",
+    "date": "2025-02-16",
+    "amount": 1010.16,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, Meloxicam injection and various medication",
+    "date": "2024-09-17",
+    "amount": 211.97,
+    "status": "paid"
+  }
+]

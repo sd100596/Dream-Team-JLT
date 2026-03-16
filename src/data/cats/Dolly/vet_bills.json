@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "description": "TNR",
+    "date": "2020-02-20",
+    "amount": 235.0,
+    "status": "paid"
+  }
+]

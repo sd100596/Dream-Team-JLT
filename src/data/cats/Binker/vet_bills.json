@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Consultation, PCH, rabies, municapality tag",
+    "date": "2025-03-30",
+    "amount": 179.81,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH, worming, microchip",
+    "date": "2025-03-08",
+    "amount": 187.95,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, various medication",
+    "date": "2025-02-23",
+    "amount": 80.11,
+    "status": "paid"
+  },
+  {
+    "description": "Various medication",
+    "date": "2025-02-16",
+    "amount": 44.1,
+    "status": "paid"
+  }
+]

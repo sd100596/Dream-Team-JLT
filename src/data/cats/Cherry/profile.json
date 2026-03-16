@@ -3,7 +3,7 @@
   "location": "Behind the bushes down from Carrefour Cluster P.",
   "breed": "DSH/Tabby & White",
   "gender": "Female",
-  "adoptable": false,
+  "adoptable": true,
   "photo": "photo.jpg",
   "tnr": false
 }

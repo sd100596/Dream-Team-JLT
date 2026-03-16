@@ -1,9 +1,8 @@
 [
-
   {
-    "description": "TNR sponsored by DMCC",
+    "description": "TNR - kindly sponsored by DMCC",
     "date": "2024-03-17",
-    "amount": 136.50,
+    "amount": 136.5,
     "status": "paid"
   },
   {
@@ -21,7 +20,7 @@
   {
     "description": "Consultation and PCH",
     "date": "2025-12-19",
-    "amount": 115.50,
+    "amount": 115.5,
     "status": "paid"
   },
   {
@@ -31,4 +30,3 @@
     "status": "paid"
   }
 ]
-
