@@ -1,8 +1,9 @@
 {
   "bio": "Whiskers and sunshine. Loves sunbeams and feather toys. A gentle soul who enjoys cozy spots.",
   "location": "Downtown alley, near the bakery",
-  "age": 3,
   "breed": "Domestic Shorthair",
   "gender": "Female",
+  "adoptable": false,
   "photo": "photo.jpg"
 }
+

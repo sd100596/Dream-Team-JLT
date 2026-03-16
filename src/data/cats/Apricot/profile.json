@@ -1,8 +1,10 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Apricot is another new kitten, first spotted in February 2026. She is part of the new 'fruit salad' gang.",
+  "location": "Behind the bushes down from Carrefour Cluster P.",
+  "breed": "DSH/Ginger & White",
+  "gender": "Female",
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": false
 }
+

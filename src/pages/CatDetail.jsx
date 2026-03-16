@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, Paper, Grid, Chip, IconButton, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -13,6 +13,7 @@ import { alpha } from '@mui/material/styles';
 function CatDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isBioExpanded, setIsBioExpanded] = useState(false);
   const handleBackToCats = () => {
     sessionStorage.setItem('catsGalleryRestoreScroll', 'true');
     navigate('/cats');
@@ -21,8 +22,10 @@ function CatDetail() {
   const cat = catsData.cats.find(c => c.id === id);
   
   const hasPendingBills = cat?.vetBills?.some(b => b.status === 'due' || b.status === 'unpaid');
+  const isLongBio = (cat?.bio?.length || 0) > 220;
 
   useEffect(() => {
+    setIsBioExpanded(false);
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [id]);
 
@@ -133,11 +136,35 @@ function CatDetail() {
                  {cat.gender && <Chip label={cat.gender} variant="outlined" color="primary" />}
                  {cat.age && <Chip label={`${cat.age} years old`} variant="outlined" />}
                  {cat.tnr && <Chip label="TNR" icon={<CheckCircleIcon fontSize="small" />} color="success" />}
+                 {cat.adoptable && <Chip label="Adoptable" color="secondary" />}
                </Box>
 
-              <Typography variant="h6" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
+              <Typography
+                id="cat-bio"
+                variant="h6"
+                color="text.secondary"
+                sx={{
+                  mb: isLongBio ? 2 : 4,
+                  lineHeight: 1.8,
+                  display: isBioExpanded ? 'block' : '-webkit-box',
+                  WebkitLineClamp: isBioExpanded ? 'unset' : 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: isBioExpanded ? 'visible' : 'hidden'
+                }}
+              >
                 {cat.bio}
               </Typography>
+              {isLongBio && (
+                <Button
+                  size="small"
+                  onClick={() => setIsBioExpanded(prev => !prev)}
+                  aria-expanded={isBioExpanded}
+                  aria-controls="cat-bio"
+                  sx={{ mb: 2 }}
+                >
+                  {isBioExpanded ? 'View less' : 'View more'}
+                </Button>
+              )}
             </Box>
 
             {/* Location */}

@@ -1,9 +1,10 @@
 {
   "bio": "Queenie is one of our OG's! She loves to sit on the parked cars in the winter (to warm up) and sit inside the supermarket for the AC in the summer (to cool down). She is a really fussy eater - her preference is Dreamies and Sheba Treats!",
   "location": "She is usually located outside Al Maya Supermarket in Cluster Q.",
-  "age": 8,
   "breed": "Tabby",
   "gender": "Female",
+  "adoptable": false,
   "photo": "photo.jpg",
   "tnr":true
 }
+

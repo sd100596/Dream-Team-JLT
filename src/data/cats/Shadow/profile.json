@@ -1,8 +1,9 @@
 {
   "bio": "Playful and energetic. Oreo lives up to his name with his black and white markings.",
   "location": "Oak Street community center",
-  "age": 1,
   "breed": "Tuxedo",
   "gender": "Male",
+  "adoptable": false,
   "photo": "photo.jpg"
 }
+

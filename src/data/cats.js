@@ -53,6 +53,7 @@ const cats = Object.keys(catModules).map((path) => {
       photoUrl: localPhoto || `https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=600&fit=crop`,
       vetBills: vetBills || [],
       tnr: profile?.tnr || false,
+      adoptable: profile?.adoptable || false,
       // Computed properties for filtering
       status,
       hasPendingBills
