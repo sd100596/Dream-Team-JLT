@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HomeIcon from '@mui/icons-material/Home';
 import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import VetBillList from '../components/VetBillList';
 import catsData from '../data/cats';
 import { alpha } from '@mui/material/styles';
@@ -23,6 +24,7 @@ function CatDetail() {
   
   const hasPendingBills = cat?.vetBills?.some(b => b.status === 'due' || b.status === 'unpaid');
   const isLongBio = (cat?.bio?.length || 0) > 220;
+  const shouldClampBio = isLongBio && !isBioExpanded;
 
   useEffect(() => {
     setIsBioExpanded(false);
@@ -146,21 +148,39 @@ function CatDetail() {
                 sx={{
                   mb: isLongBio ? 2 : 4,
                   lineHeight: 1.8,
-                  display: isBioExpanded ? 'block' : '-webkit-box',
-                  WebkitLineClamp: isBioExpanded ? 'unset' : 3,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: isBioExpanded ? 'visible' : 'hidden'
+                  display: shouldClampBio ? '-webkit-box' : 'block',
+                  WebkitLineClamp: shouldClampBio ? 3 : 'unset',
+                  WebkitBoxOrient: shouldClampBio ? 'vertical' : 'unset',
+                  overflow: shouldClampBio ? 'hidden' : 'visible'
                 }}
               >
                 {cat.bio}
               </Typography>
               {isLongBio && (
                 <Button
+                  fullWidth
                   size="small"
                   onClick={() => setIsBioExpanded(prev => !prev)}
                   aria-expanded={isBioExpanded}
                   aria-controls="cat-bio"
-                  sx={{ mb: 2 }}
+                  variant="outlined"
+                  endIcon={<ExpandMoreIcon />}
+                  sx={(theme) => ({
+                    mb: 2,
+                    textTransform: 'none',
+                    borderRadius: 999,
+                    py: 0.75,
+                    borderColor: alpha(theme.palette.text.primary, 0.2),
+                    bgcolor: alpha(theme.palette.text.primary, 0.04),
+                    '&:hover': {
+                      bgcolor: alpha(theme.palette.text.primary, 0.08),
+                      borderColor: alpha(theme.palette.text.primary, 0.35)
+                    },
+                    '& .MuiButton-endIcon': {
+                      transition: 'transform 0.2s ease',
+                      transform: isBioExpanded ? 'rotate(180deg)' : 'rotate(0deg)'
+                    }
+                  })}
                 >
                   {isBioExpanded ? 'View less' : 'View more'}
                 </Button>
