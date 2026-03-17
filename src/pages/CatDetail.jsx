@@ -138,7 +138,7 @@ function CatDetail() {
                  {cat.gender && <Chip label={cat.gender} variant="outlined" color="primary" />}
                  {cat.age && <Chip label={`${cat.age} years old`} variant="outlined" />}
                  {cat.tnr && <Chip label="TNR" icon={<CheckCircleIcon fontSize="small" />} color="success" />}
-                 {cat.adoptable && <Chip label="Adoptable" color="secondary" />}
+                 {cat.adoptable && <Chip label="Adoptable" icon={<HomeIcon fontSize="small" />} color="secondary" />}
                </Box>
 
               <Typography

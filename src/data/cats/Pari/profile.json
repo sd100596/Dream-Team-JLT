@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
-  "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "bio": "Pari is one of the new colony dumped in October 2025. She is still very timid and shy but getting more brave with the feeders now.",
+  "location": "Downstairs from Baker Street in Cluster Q",
+  "breed": "DSH/White with little spots of colour",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-
