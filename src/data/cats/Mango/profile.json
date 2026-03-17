@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Mango is the original of the ‘fruit salad’ gang. He was first spotted around September 2025. He is so kind with the newbies, especially Cherry. Such a sweetheart.",
+  "location": "Behind the bushes, down from Carrefour Cluster P",
+  "breed": "DSH/Ginger & White",
   "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-

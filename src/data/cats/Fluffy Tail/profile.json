@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
-  "gender": "Male",
+  "bio": "Fluffy Tail is also an old timer in JLT and is super fluffy (hence the name!). She gets on well with most of the cats around.",
+  "location": "Usually inside the carpark in Cluster P down from Carrefour, but she has recently been spotted with the 'Fruit Salad gang'",
+  "breed": "Fluffy Black & White",
+  "gender": "Female",
   "adoptable": false,
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }
-

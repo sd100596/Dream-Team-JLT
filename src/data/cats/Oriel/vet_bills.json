@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "description": "Consultation, hospialisation, various medication",
+    "date": "2025-01-29",
+    "amount": 1916.84,
+    "status": "paid"
+  }
+]

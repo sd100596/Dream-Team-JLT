@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Felix has been around since about 2017 at least! Such a lovely boy, but will hold his own against the other males in the area. He usually hangs out around Luna. He's getting on now, bless him.",
+  "location": "By the Lake between Clusters R and Q",
+  "breed": "DSH/Black & White",
   "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-
