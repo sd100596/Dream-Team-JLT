@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2026-01-14",
+    "amount": 630.0,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, hospialisation, IV, dental, various medication",
+    "date": "2026-01-13",
+    "amount": 2955.56,
+    "status": "unpaid"
+  }
+]

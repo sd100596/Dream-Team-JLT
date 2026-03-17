@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
-  "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "bio": "Princess is one of the new colony dumped in October 2025. She loves to hang out with her bestie 'Paige' they are like sisters and it is very hard to tell them apart.",
+  "location": "Downstairs from Baker Street in Cluster Q",
+  "breed": "Tortoiseshell",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-
