@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "description": "Consultation, dental extractions, bloodwork, hospitalisation, nursing care, various medication",
+    "date": "2025-01-08",
+    "amount": 3382.19,
+    "status": "paid"
+  },
+  {
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2024-02-06",
+    "amount": 157.0,
+    "status": "paid"
+  }
+]
