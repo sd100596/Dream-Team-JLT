@@ -3,6 +3,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import ScissorsIcon from '@mui/icons-material/ContentCut';
 import { useNavigate } from 'react-router-dom';
 import { alpha } from '@mui/material/styles';
+import { memo } from 'react';
 
 function CatCard({ cat }) {
   const navigate = useNavigate();
@@ -135,4 +136,4 @@ function CatCard({ cat }) {
   );
 }
 
-export default CatCard;
+export default memo(CatCard);
