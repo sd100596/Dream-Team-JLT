@@ -1,9 +1,10 @@
-import { Box, Typography, Button, Container, Grid } from '@mui/material';
+import { Box, Typography, Button, Container, Grid, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import CustomAccordion from '../components/Accordion';
 import PetsIcon from '@mui/icons-material/Pets';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { alpha } from '@mui/material/styles';
 
 function Landing() {
@@ -26,8 +27,57 @@ function Landing() {
     {
       title: 'How You Can Help',
       content: [
-        'There are many ways you can support our work. We have an Amazon Wish List to help keep our feeding stations stocked for the many hungry cats we care for. We are also always grateful for support with outstanding veterinary bills, which can be paid directly to the vets by credit card or cash.',
-        'You can also help by fostering or adopting a cat in need, volunteering your time with feeding or wet-food rounds, or simply spreading the word about what we do. Every contribution, big or small, truly makes a difference.'
+        <Typography
+          key="how-you-can-help-1"
+          variant="h6"
+          color="text.secondary"
+          sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}
+        >
+          There are many ways you can support our work. We have an{' '}
+          <Link
+            href="https://www.amazon.ae/hz/wishlist/ls/3404FFTMY1VLR?ref_=wl_share"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              fontWeight: 600,
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+              color: 'primary.main',
+              '&:hover': { color: 'primary.dark' },
+            }}
+          >
+            Amazon Wish List
+          </Link>{' '}
+          to help keep our feeding stations stocked for the many hungry cats we care for. We are
+          also always grateful for support with outstanding veterinary bills, which can be paid
+          directly to the vets by credit card or cash.
+        </Typography>,
+        'You can also help by fostering or adopting a cat in need, volunteering your time with feeding or wet-food rounds, or simply spreading the word about what we do. Every contribution, big or small, truly makes a difference.',
+        <Box key="how-you-can-help-cta" sx={{ pt: 1 }}>
+          <Button
+            component={RouterLink}
+            to="/donate"
+            variant="contained"
+            startIcon={<FavoriteIcon />}
+            sx={{
+              bgcolor: (theme) =>
+                theme.palette.mode === 'light' ? '#F06292' : '#EC407A',
+              color: (theme) =>
+                theme.palette.mode === 'light'
+                  ? theme.palette.common.white
+                  : theme.palette.getContrastText('#EC407A'),
+              '&:hover': {
+                bgcolor: (theme) =>
+                  theme.palette.mode === 'light' ? '#EC407A' : '#D81B60',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 4px 12px rgba(236,64,122,0.4)',
+              },
+              transition: 'all 0.2s ease',
+            }}
+          >
+            I want to help!
+          </Button>
+        </Box>,
       ]
     },
     {

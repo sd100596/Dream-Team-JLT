@@ -127,19 +127,6 @@ function CatsGallery() {
             Each cat has a unique story. Click on any cat to learn more about them, 
             including their location and any pending vet bills.
           </Typography>
-          
-          <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', gap: 1, flexWrap: 'wrap' }}>
-            <Chip 
-              label={`${cats.length} cats available`} 
-              color="secondary" 
-              variant="outlined"
-            />
-            <Chip 
-              label="Click to view details" 
-              color="primary" 
-              variant="outlined"
-            />
-          </Box>
         </Box>
 
         {/* Stray Cats Section */}

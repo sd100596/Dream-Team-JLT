@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Piper has found his home now in Cluster Q and it doesn’t matter who was there before, namely Peaches who had to relocate! While he can be a bit intimidating with the newer cats, he stands his ground and has built up a small fan base of regular visitors who keep an eye out for him.",
+  "breed": "DSH/White & Tabby",
   "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "location": "Downstairs from Baker Street in Cluster Q",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-

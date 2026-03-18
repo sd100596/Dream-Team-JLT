@@ -16,9 +16,8 @@ import WarningIcon from "@mui/icons-material/Warning";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SupportIcon from "@mui/icons-material/Support";
 import PaymentIcon from "@mui/icons-material/Payment";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { alpha } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router-dom";
 
 function VetBillList({ bills }) {
   const [supportModal, setSupportModal] = useState({
@@ -225,42 +224,34 @@ function SupportModal({ open, onClose, billDescription }) {
             <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
               Ways to Contribute:
             </Typography>
-
-            {/* Placeholder donation links - you can replace these with actual links */}
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, mb: 2 }}
+            <Paper
+              variant="outlined"
+              sx={(theme) => ({
+                p: 1.5,
+                maxWidth: { xs: "100%", sm: 360 },
+                borderRadius: 2,
+                borderColor: alpha(theme.palette.success.main, 0.4),
+                bgcolor: alpha(
+                  theme.palette.success.main,
+                  theme.palette.mode === "light" ? 0.06 : 0.14,
+                ),
+              })}
             >
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                Prefer the full details? Visit our Donate page for payment info,
+                reference text, and other ways to help.
+              </Typography>
               <Button
+                component={RouterLink}
+                to="/donate"
                 variant="contained"
+                color="success"
+                size="small"
                 startIcon={<PaymentIcon fontSize="small" />}
-                sx={{ width: "100%", justifyContent: "start" }}
-                onClick={() => {
-                  /* TODO: Add actual donation link handler */
-                }}
               >
-                Donate via PayPal (Placeholder)
+                Go to Donate
               </Button>
-              <Button
-                variant="contained"
-                startIcon={<AttachMoneyIcon fontSize="small" />}
-                sx={{ width: "100%", justifyContent: "start" }}
-                onClick={() => {
-                  /* TODO: Add actual donation link handler */
-                }}
-              >
-                Bank Transfer Details (Placeholder)
-              </Button>
-              <Button
-                variant="outlined"
-                startIcon={<FavoriteIcon fontSize="small" />}
-                sx={{ width: "100%", justifyContent: "start" }}
-                onClick={() => {
-                  /* TODO: Add actual donation link handler */
-                }}
-              >
-                Sponsor This Cat (Placeholder)
-              </Button>
-            </Box>
+            </Paper>
           </Box>
 
           {/* Contact Information */}
@@ -271,11 +262,10 @@ function SupportModal({ open, onClose, billDescription }) {
             <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>
               <Typography variant="body2">
                 Email:{" "}
-                <a href="mailto:dreamteamjlt@example.com">
-                  dreamteamjlt@example.com
+                <a href="mailto:dreamteamcatsjlt@gmail.com">
+                  dreamteamcatsjlt@gmail.com
                 </a>
               </Typography>
-              <Typography variant="body2">Phone: +971 50 123 4567</Typography>
               <Typography variant="body2">Location: JLT, Dubai, UAE</Typography>
             </Box>
           </Box>
@@ -295,9 +285,6 @@ function SupportModal({ open, onClose, billDescription }) {
         <DialogActions>
           <Button onClick={onClose} variant="outlined">
             Close
-          </Button>
-          <Button onClick={onClose} variant="contained" color="primary">
-            I'll Help
           </Button>
         </DialogActions>
       </Dialog>

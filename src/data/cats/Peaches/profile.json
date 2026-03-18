@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
-  "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "bio": "Peaches was first seen in December 2021. She has always loved her food, with a definite preference to wet food over dry.  She had 13 teeth removed back in January 2025, but that doesn’t stop her from continuing to enjoy her food!",
+  "location": "Top of the stairs by Soon Restaurant in Cluster P",
+  "breed": "Calico",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": true
 }
-
