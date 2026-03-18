@@ -1,7 +1,7 @@
 import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select, MenuItem, Collapse, IconButton, FormControlLabel, Checkbox } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FilterListAltIcon from '@mui/icons-material/FilterAlt';
-import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef, useMemo } from 'react';
 import { useNavigationType } from 'react-router-dom';
 import CatCard from '../components/CatCard';
 import catsData from '../data/cats';
@@ -80,25 +80,18 @@ function CatsGallery() {
   }, [navigationType]);
 
   // Group cats by status
-  const strayCats = cats.filter(cat => cat.status === 'stray');
-  const homedCats = cats.filter(cat => cat.status === 'homed');
+  const strayCats = useMemo(() => cats.filter(cat => cat.status === 'stray'), [cats]);
+  const homedCats = useMemo(() => cats.filter(cat => cat.status === 'homed'), [cats]);
 
   // Filter stray cats
-  const filteredStrayCats = strayCats.filter(cat => {
-    // TNR filter
-    if (filters.tnrOnly && !cat.tnr) {
-      return false;
-    }
-    // Adoptable filter
-    if (filters.adoptableOnly && !cat.adoptable) {
-      return false;
-    }
-    // Gender filter
-    if (filters.gender && cat.gender !== filters.gender) {
-      return false;
-    }
-    return true;
-  });
+  const filteredStrayCats = useMemo(() => {
+    return strayCats.filter(cat => {
+      if (filters.tnrOnly && !cat.tnr) return false;
+      if (filters.adoptableOnly && !cat.adoptable) return false;
+      if (filters.gender && cat.gender !== filters.gender) return false;
+      return true;
+    });
+  }, [strayCats, filters.tnrOnly, filters.adoptableOnly, filters.gender]);
 
   const clearFilters = () => {
     setFilters({
