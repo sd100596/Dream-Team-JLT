@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Pickle is a nervous little kitten who hides in the bushes. He first appeared in January 2026 but has only recently regularly been spotted by our feeders as he slowly grows braver and begins to venture out. A shy little soul, but getting more confident every day.",
+  "location": "The steps next to Splendour Fields close to the outside gym in Cluster P",
+  "breed": "Semi-Fluffy/White & Ginger",
   "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":false
 }
-

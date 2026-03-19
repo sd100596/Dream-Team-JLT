@@ -187,6 +187,11 @@ function Landing() {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  width: 240,
+                  height: 240,
+                  borderRadius: '50%',
+                  background:
+                    'radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 28%, rgba(255,192,203,0.35) 60%, rgba(255,192,203,0) 100%)',
                 }}
               >
                 <img src="/logo2.png" alt="Dream Team JLT logo" style={{ width: 200, height: 'auto' }} />
