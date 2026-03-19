@@ -184,17 +184,30 @@ function Landing() {
             <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
               <Box
                 sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  position: 'relative',
                   width: 240,
                   height: 240,
                   borderRadius: '50%',
-                  background:
-                    'radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 28%, rgba(255,192,203,0.35) 60%, rgba(255,192,203,0) 100%)',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                <img src="/logo2.png" alt="Dream Team JLT logo" style={{ width: 200, height: 'auto' }} />
+                {/* Soft white radiance behind the logo for blending with pink banner */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%',
+                    background:
+                      'radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 28%, rgba(255,255,255,0) 100%)',
+                    zIndex: 0,
+                  }}
+                />
+                <img src="/logo2.png" alt="Dream Team JLT logo" style={{ width: 200, height: 'auto', zIndex: 1 }} />
               </Box>
             </Grid>
           </Grid>
