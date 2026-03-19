@@ -189,7 +189,7 @@ function Landing() {
                   alignItems: 'center',
                 }}
               >
-                <PetsIcon sx={{ fontSize: 200, color: 'primary.light', opacity: 0.3 }} />
+                <img src="/logo2.png" alt="Dream Team JLT logo" style={{ width: 200, height: 'auto' }} />
               </Box>
             </Grid>
           </Grid>
