@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Smudge was first seen in the park in late 2024, a soft cautious little boy finding his way. After a few weeks he disappeared without a trace, only to be spotted again in January 2025 across the road by Emirates Gold, where he has been ever since. He’s a gentle soul who takes time to trust, but once he does, he’s truly special.",
+  "location": "Across the road by Emirates Gold",
+  "breed": "DSH/Black & White",
   "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-
