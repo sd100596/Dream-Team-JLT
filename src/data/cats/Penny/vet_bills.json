@@ -1,0 +1,26 @@
+[
+  {
+    "description": "Consultation, dental, scale & polish, meds, blood work",
+    "date": "2026-02-17",
+    "amount": 1893.43,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, inhouse hermoparasite check, meds, blood work",
+    "date": "2026-02-02",
+    "amount": 971.61,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH",
+    "date": "2026-01-21",
+    "amount": 115.5,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, rabies, PCH, worming",
+    "date": "2025-12-20",
+    "amount": 142.28,
+    "status": "paid"
+  }
+]

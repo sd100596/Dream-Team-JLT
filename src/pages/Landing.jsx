@@ -60,43 +60,10 @@ function Landing() {
           also always grateful for support with outstanding veterinary bills, which can be paid
           directly to the vets by credit card or cash.
         </Typography>,
-        'You can also help by fostering or adopting a cat in need, volunteering your time with feeding or wet-food rounds, or simply spreading the word about what we do. Every contribution, big or small, truly makes a difference.',
-        <Box key="how-you-can-help-cta" sx={{ pt: 1 }}>
-          <Button
-            component={RouterLink}
-            to="/donate"
-            variant="contained"
-            startIcon={<FavoriteIcon />}
-            sx={{
-              bgcolor: (theme) =>
-                theme.palette.mode === 'light' ? '#F06292' : '#EC407A',
-              color: (theme) =>
-                theme.palette.mode === 'light'
-                  ? theme.palette.common.white
-                  : theme.palette.getContrastText('#EC407A'),
-              '&:hover': {
-                bgcolor: (theme) =>
-                  theme.palette.mode === 'light' ? '#EC407A' : '#D81B60',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 4px 12px rgba(236,64,122,0.4)',
-              },
-              transition: 'all 0.2s ease',
-            }}
-          >
-            I want to help!
-          </Button>
-        </Box>,
+        'You can also help by fostering or adopting a cat in need, volunteering your time with feeding or wet-food rounds, or simply spreading the word about what we do. Every contribution, big or small, truly makes a difference.'
       ],
     },
-    {
-      title: 'Success Stories',
-      kicker: 'Community Impact',
-      icon: PetsIcon,
-      accent: '#5D9CEC',
-      content: [
-        'Our Dream Team Group has rehomed numerous cats (you can see their details on the Our Cats Page). Since the beginning of 2025, we have covered over AED 65,000 in vets bills, and TNR\'d 18 cats, supporting a healthier stray cat community. Every cat tells a story.',
-      ],
-    },
+    // 'Success Stories' box removed per plan
   ];
 
   return (
@@ -158,28 +125,48 @@ function Landing() {
               <Typography variant="h5" color="text.secondary" sx={{ mb: 4, fontWeight: 400 }}>
                 Join us in making a difference in the lives of cats who need us most.
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-                <Button 
-                  component={RouterLink} 
-                  to="/cats"
-                  variant="contained" 
-                  color="primary"
-                  size="large"
-                  startIcon={<PetsIcon />}
-                  sx={{ 
-                    py: 1.5,
-                    px: 4,
-                    fontSize: '1.1rem',
-                    '&:hover': { 
-                      transform: 'translateY(-3px)',
-                      boxShadow: '0 8px 20px rgba(255,107,107,0.4)'
-                    },
-                    transition: 'all 0.3s ease'
-                  }}
-                >
-                  See Our Cats
-                </Button>
-              </Box>
+            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+              <Button 
+                component={RouterLink} 
+                to="/cats"
+                variant="contained" 
+                color="primary"
+                size="large"
+                startIcon={<PetsIcon />}
+                sx={{ 
+                  py: 1.5,
+                  px: 4,
+                  fontSize: '1.1rem',
+                  '&:hover': { 
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 8px 20px rgba(255,107,107,0.4)'
+                  },
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                See Our Cats
+              </Button>
+              <Button 
+                component={RouterLink}
+                to="/donate"
+                variant="contained"
+                color="primary"
+                size="large"
+                startIcon={<FavoriteIcon />}
+                sx={{
+                  py: 1.5,
+                  px: 4,
+                  fontSize: '1.1rem',
+                  '&:hover': {
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 8px 20px rgba(236,64,122,0.4)'
+                  },
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                I want to Help!
+              </Button>
+            </Box>
             </Grid>
             <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
               <Box
@@ -202,8 +189,7 @@ function Landing() {
                     width: '100%',
                     height: '100%',
                     borderRadius: '50%',
-                    background:
-                      'radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 28%, rgba(255,255,255,0) 100%)',
+                    
                     zIndex: 0,
                   }}
                 />
@@ -263,8 +249,9 @@ function Landing() {
           <Grid container spacing={3}>
             {learnMoreItems.map((item, index) => {
               const Icon = item.icon;
+              const isFirst = index === 0;
               return (
-                <Grid item xs={12} md={6} key={item.title}>
+                <Grid item xs={12} md={isFirst ? 12 : 6} key={item.title}>
                   <Box
                     sx={(theme) => ({
                       height: '100%',
