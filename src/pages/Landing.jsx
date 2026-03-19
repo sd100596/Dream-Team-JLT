@@ -1,6 +1,5 @@
 import { Box, Typography, Button, Container, Grid, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import CustomAccordion from '../components/Accordion';
 import PetsIcon from '@mui/icons-material/Pets';
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
@@ -8,30 +7,39 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { alpha } from '@mui/material/styles';
 
 function Landing() {
-  const accordionItems = [
+  const learnMoreItems = [
     {
       title: 'Our Mission',
+      kicker: 'Purpose',
+      icon: FavoriteIcon,
+      accent: '#FF6B6B',
       content: [
         'We are a community-driven cat welfare group committed to supporting stray and dumped cats in our neighborhood. Through TNR, we ensure a healthier, more balanced community cat population over time. If you see a cat with a small snip on its left ear, this indicates that the cat has been neutured.',
         'We also provide food, cover vet costs when needed and work to place vulnerable cats in safe, loving, forever homes.',
-        'We operate entirely on goodwill and donations - every single dirham received goes directly toward the care and wellbeing of our feline friends.'
-      ]
+        'We operate entirely on goodwill and donations - every single dirham received goes directly toward the care and wellbeing of our feline friends.',
+      ],
     },
     {
       title: 'How We Help',
+      kicker: 'Care in Action',
+      icon: LocalHospitalIcon,
+      accent: '#4ECDC4',
       content: [
         'Within our Dream Team Community we currently care for over 40 cats between Clusters O and R, as well as the surrounding areas. We have eight feeding stations, all of which are regularly replenished with dry cat food and fresh water, and we endeavour to provide wet food on a daily basis.',
-        'Our work is made possible through a dedicated network of feeder volunteers. We cover vet bills through community donations and actively seek forever homes either within the UAE or internationally, fundraising towards flight expenses, where required.'
-      ]
+        'Our work is made possible through a dedicated network of feeder volunteers. We cover vet bills through community donations and actively seek forever homes either within the UAE or internationally, fundraising towards flight expenses, where required.',
+      ],
     },
     {
       title: 'How You Can Help',
+      kicker: 'Join the Team',
+      icon: VolunteerActivismIcon,
+      accent: '#F4A261',
       content: [
         <Typography
           key="how-you-can-help-1"
-          variant="h6"
+          variant="body1"
           color="text.secondary"
-          sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}
+          sx={{ lineHeight: 1.7, fontSize: '1rem' }}
         >
           There are many ways you can support our work. We have an{' '}
           <Link
@@ -39,7 +47,7 @@ function Landing() {
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              fontWeight: 600,
+              fontWeight: 700,
               textDecoration: 'underline',
               textUnderlineOffset: '3px',
               color: 'primary.main',
@@ -78,14 +86,17 @@ function Landing() {
             I want to help!
           </Button>
         </Box>,
-      ]
+      ],
     },
     {
       title: 'Success Stories',
+      kicker: 'Community Impact',
+      icon: PetsIcon,
+      accent: '#5D9CEC',
       content: [
-        'Our Dream Team Group has rehomed numerous cats (you can see their details on the Our Cats Page). Since the beginning of 2025, we have covered over AED 65,000 in vets bills, and TNR\'d 18 cats, supporting a healthier stray cat community. Every cat tells a story.'
-      ]
-    }
+        'Our Dream Team Group has rehomed numerous cats (you can see their details on the Our Cats Page). Since the beginning of 2025, we have covered over AED 65,000 in vets bills, and TNR\'d 18 cats, supporting a healthier stray cat community. Every cat tells a story.',
+      ],
+    },
   ];
 
   return (
@@ -185,50 +196,172 @@ function Landing() {
         </Container>
       </Box>
 
-      {/* Stats Section */}
-      <Box sx={{ py: 8, bgcolor: 'background.paper' }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
-              <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" color="primary.main" sx={{ fontWeight: 700 }}>9+</Typography>
-                <Typography variant="h6" color="text.secondary">Cats Adopted</Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box sx={{ textAlign: 'center' }}>
-                <Typography variant="h2" color="secondary.main" sx={{ fontWeight: 700 }}>AED 60K+</Typography>
-                <Typography variant="h6" color="text.secondary">Vet Bills Covered</Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box sx={{ textAlign: 'center' }}>
-                <Typography
-                  variant="h2"
-                  sx={(theme) => ({
-                    fontWeight: 700,
-                    color: theme.palette.mode === 'light' ? '#9B59B6' : '#C9A5F5',
-                  })}
-                >
-                  15+
-                </Typography>
-                <Typography variant="h6" color="text.secondary">Active Volunteers</Typography>
-              </Box>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
 
-      {/* Accordion Section */}
-      <Box sx={{ py: 8 }}>
-        <Container maxWidth="md">
-          <Typography 
-            variant="h3" 
-            sx={{ mb: 4, textAlign: 'center', fontWeight: 600 }}
-          >
-            Learn More About Us
-          </Typography>
-          <CustomAccordion items={accordionItems} />
+
+      {/* Learn More Section */}
+      <Box
+        sx={(theme) => ({
+          py: { xs: 8, md: 10 },
+          position: 'relative',
+          overflow: 'hidden',
+          background:
+            theme.palette.mode === 'light'
+              ? 'linear-gradient(180deg, #FFF9F5 0%, #FFFFFF 40%, #F6FFFD 100%)'
+              : 'linear-gradient(180deg, #0F141A 0%, #141B23 45%, #0C1117 100%)',
+        })}
+      >
+        <Box
+          sx={(theme) => ({
+            position: 'absolute',
+            top: -120,
+            left: -80,
+            width: 260,
+            height: 260,
+            borderRadius: '50%',
+            bgcolor: alpha(theme.palette.primary.main, theme.palette.mode === 'light' ? 0.08 : 0.18),
+            filter: 'blur(0px)',
+          })}
+        />
+        <Box
+          sx={(theme) => ({
+            position: 'absolute',
+            bottom: -140,
+            right: -90,
+            width: 300,
+            height: 300,
+            borderRadius: '50%',
+            bgcolor: alpha(theme.palette.secondary.main, theme.palette.mode === 'light' ? 0.08 : 0.16),
+          })}
+        />
+        <Container maxWidth="lg" sx={{ position: 'relative' }}>
+          <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
+            <Typography
+              variant="h3"
+              sx={{ fontWeight: 600, mb: 1 }}
+            >
+              Learn More About Us
+            </Typography>
+          </Box>
+          <Grid container spacing={3}>
+            {learnMoreItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Grid item xs={12} md={6} key={item.title}>
+                  <Box
+                    sx={(theme) => ({
+                      height: '100%',
+                      p: { xs: 3, md: 4 },
+                      borderRadius: 4,
+                      position: 'relative',
+                      overflow: 'hidden',
+                      background:
+                        theme.palette.mode === 'light'
+                          ? `linear-gradient(160deg, ${alpha(item.accent, 0.08)} 0%, #FFFFFF 45%, ${alpha(item.accent, 0.16)} 100%)`
+                          : `linear-gradient(160deg, ${alpha(item.accent, 0.18)} 0%, rgba(16,20,26,0.92) 55%, ${alpha(item.accent, 0.12)} 100%)`,
+                      border: `1px solid ${alpha(item.accent, theme.palette.mode === 'light' ? 0.2 : 0.3)}`,
+                      boxShadow:
+                        theme.palette.mode === 'light'
+                          ? `0 18px 35px ${alpha(item.accent, 0.18)}`
+                          : `0 18px 35px ${alpha(theme.palette.common.black, 0.45)}`,
+                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-6px)',
+                        boxShadow:
+                          theme.palette.mode === 'light'
+                            ? `0 24px 42px ${alpha(item.accent, 0.24)}`
+                            : `0 24px 42px ${alpha(theme.palette.common.black, 0.55)}`,
+                      },
+                      '&:before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: -50,
+                        right: -40,
+                        width: 140,
+                        height: 140,
+                        borderRadius: '50%',
+                        bgcolor: alpha(item.accent, theme.palette.mode === 'light' ? 0.18 : 0.22),
+                      },
+                      '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: -60,
+                        left: -30,
+                        width: 120,
+                        height: 120,
+                        borderRadius: 32,
+                        border: `1px dashed ${alpha(item.accent, theme.palette.mode === 'light' ? 0.3 : 0.4)}`,
+                        transform: 'rotate(-6deg)',
+                      },
+                    })}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+                      <Box
+                        sx={{
+                          width: 56,
+                          height: 56,
+                          borderRadius: '18px',
+                          display: 'grid',
+                          placeItems: 'center',
+                          color: item.accent,
+                          background: `linear-gradient(135deg, ${alpha(
+                            item.accent,
+                            0.2
+                          )} 0%, ${alpha(item.accent, 0.55)} 100%)`,
+                        }}
+                      >
+                        <Icon sx={{ fontSize: 30 }} />
+                      </Box>
+                      <Box>
+                        <Typography
+                          variant="overline"
+                          sx={{
+                            fontWeight: 700,
+                            letterSpacing: '0.14em',
+                            color: alpha(item.accent, 0.85),
+                          }}
+                        >
+                          {item.kicker}
+                        </Typography>
+                        <Typography
+                          variant="h4"
+                          sx={{ fontWeight: 600, fontSize: { xs: '1.6rem', md: '1.8rem' } }}
+                        >
+                          {item.title}
+                        </Typography>
+                      </Box>
+                      <Box
+                        sx={{
+                          marginLeft: 'auto',
+                          fontFamily: '"Fredoka", sans-serif',
+                          fontWeight: 600,
+                          fontSize: '1.1rem',
+                          color: alpha(item.accent, 0.85),
+                        }}
+                      >
+                        {`0${index + 1}`}
+                      </Box>
+                    </Box>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                      {item.content.map((paragraph, idx) =>
+                        typeof paragraph === 'string' ? (
+                          <Typography
+                            key={idx}
+                            variant="body1"
+                            color="text.secondary"
+                            sx={{ lineHeight: 1.7, fontSize: '1rem' }}
+                          >
+                            {paragraph}
+                          </Typography>
+                        ) : (
+                          <Box key={idx}>{paragraph}</Box>
+                        )
+                      )}
+                    </Box>
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
         </Container>
       </Box>
 
