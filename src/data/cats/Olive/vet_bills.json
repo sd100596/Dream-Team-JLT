@@ -1,0 +1,85 @@
+[
+  {
+    "description": "Consultation, Thyroxine T4, blood work, Subcutaneous Fluid, Covenia, X-ray",
+    "date": "2025-12-24",
+    "amount": 1616.0,
+    "status": "paid"
+  },
+  {
+    "description": "Various medication",
+    "date": "2025-05-14",
+    "amount": 96.9,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, blood work, T4, fluid therapy, surgery, hospitalisation, medical shirt, various medication",
+    "date": "2025-04-25",
+    "amount": 2953.18,
+    "status": "paid"
+  },
+  {
+    "description": "Consulation, blood work, T4, Acid Capsule, Felimazole",
+    "date": "2025-04-04",
+    "amount": 801.69,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, hospitalisation, various medication, catheter, nursing care, food, fluid therapy",
+    "date": "2025-03-13",
+    "amount": 827.91,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, hospitalisation, nursing, Infusion pump, fluid therapy and various medication",
+    "date": "2025-02-26",
+    "amount": 1224.16,
+    "status": "paid"
+  },
+  {
+    "description": "100mg/ml Enrofloxacin Injection, Meloxicam 0.5 oral, Sub-cut fluid, Bacterial sample collection, Bacterial culture & sensitivity",
+    "date": "2024-10-24",
+    "amount": 835.4,
+    "status": "paid"
+  },
+  {
+    "description": "100mg/ml Enrofloxacin Injection, Cytology Outside Lab, Sub-cut fluid",
+    "date": "2024-10-22",
+    "amount": 480.67,
+    "status": "paid"
+  },
+  {
+    "description": "100mg/ml Enrofloxacin Injection, Sub-cut Fluid, Meloxicam 0.5 oral",
+    "date": "2024-10-21",
+    "amount": 216.07,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, x-ray",
+    "date": "2024-10-16",
+    "amount": 409.01,
+    "status": "paid"
+  },
+  {
+    "description": "100mg/ml Enrofloxacin Injection, Meloxicam Injection daily from Oct 08 to Oct 19, 2024",
+    "amount": 1398.6,
+    "status": "paid"
+  },
+  {
+    "description": "50mg/ml Enrofloxacin Injection, 50mg Enrofloxacin Tablet, Meloxicam Injection, Sub-cut Fluid",
+    "date": "2024-10-02",
+    "amount": 225.37,
+    "status": "paid"
+  },
+  {
+    "description": "100mg/ml Enrofloxacin Injection, Meloxicam Injection",
+    "date": "2024-10-01",
+    "amount": 116.55,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, double sedation, histology/biopsy/tumour each side CVRL, Special Bacterial culture CVRL, tumour removal per site, sample collection",
+    "date": "2024-09-21",
+    "amount": 1625.6,
+    "status": "paid"
+  }
+]
