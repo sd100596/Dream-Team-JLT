@@ -2,24 +2,27 @@ import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FilterListAltIcon from '@mui/icons-material/FilterAlt';
 import { useState, useEffect, useRef, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import CatCard from '../components/CatCard';
 import catsData from '../data/cats';
 
 function CatsGallery() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const cats = (catsData?.cats) || [];
   
   // Filter states (only for stray cats)
+  const hasAdoptableParam = searchParams.get('adoptable') === 'true';
   const [filters, setFilters] = useState({
-    tnrOnly: false,
-    adoptableOnly: false,
-    gender: ''
+    tnrOnly: searchParams.get('tnr') === 'true',
+    adoptableOnly: hasAdoptableParam,
+    gender: searchParams.get('gender') || ''
   });
   const hasActiveFilters = filters.tnrOnly || filters.adoptableOnly || !!filters.gender;
 
   // Collapsible section states
   const [strayExpanded, setStrayExpanded] = useState(true);
   const [homedExpanded, setHomedExpanded] = useState(true);
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(hasAdoptableParam || filters.tnrOnly || !!filters.gender);
   const [filterIconShift, setFilterIconShift] = useState(0);
   const filterControlsRef = useRef(null);
   const filterIconRef = useRef(null);
@@ -85,6 +88,15 @@ function CatsGallery() {
     });
     setShowFilters(false);
   };
+
+  // Sync filters to URL
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (filters.tnrOnly) params.set('tnr', 'true');
+    if (filters.adoptableOnly) params.set('adoptable', 'true');
+    if (filters.gender) params.set('gender', filters.gender);
+    setSearchParams(params);
+  }, [filters.tnrOnly, filters.adoptableOnly, filters.gender, setSearchParams]);
 
   return (
     <Box sx={{ py: 6, minHeight: '100vh' }}>
