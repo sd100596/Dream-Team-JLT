@@ -1,18 +1,62 @@
 [
   {
-    "id": "bill-oreo-001",
-    "description": "Neutering",
-    "dueDate": "2026-04-01",
-    "amountDue": 120,
-    "status": "paid",
-    "paidDate": "2026-03-25"
+    "description": "Consultation, PCH Vaccination, nail trimming",
+    "date": "2026-03-05",
+    "amount": 156.02,
+    "status": "unpaid"
   },
   {
-    "id": "bill-oreo-002",
-    "description": "Microchipping",
-    "dueDate": "2026-04-01",
-    "amountDue": 25.5,
-    "status": "paid",
-    "paidDate": "2026-03-25"
+    "description": "Consultation, PCH Vaccination",
+    "date": "2026-02-09",
+    "amount": 115.5,
+    "status": "unpaid"
+  },
+  {
+    "description": "Consultation, medicated bath, various medication",
+    "date": "2026-02-03",
+    "amount": 362.33,
+    "status": "unpaid"
+  },
+  {
+    "description": "Medicated bath, nail trimming",
+    "date": "2026-01-26",
+    "amount": 172.82,
+    "status": "unpaid"
+  },
+  {
+    "description": "Medicated bath, various medication",
+    "date": "2026-01-24",
+    "amount": 187.43,
+    "status": "unpaid"
+  },
+  {
+    "description": "Medicated bath",
+    "date": "2026-01-21",
+    "amount": 132.3,
+    "status": "unpaid"
+  },
+  {
+    "description": "Consultation, woodlamp, medicated bath, various medication",
+    "date": "2026-01-19",
+    "amount": 673.82,
+    "status": "unpaid"
+  },
+  {
+    "description": "Consultation, giardia, various medication",
+    "date": "2025-12-27",
+    "amount": 371.66,
+    "status": "unpaid"
+  },
+  {
+    "description": "Consultation, giardia, various medication",
+    "date": "2025-12-20",
+    "amount": 387.82,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, giardia, various medication",
+    "date": "2025-12-14",
+    "amount": 397.85,
+    "status": "paid"
   }
 ]
