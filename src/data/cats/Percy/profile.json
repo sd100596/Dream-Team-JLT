@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
+  "bio": "Percy was dumped alongside Penny and Pepper in October 2025, but unlike them, he chose a different path. He’s made the park his home, happily roaming between the Clusters and living life on his own  terms. A social and curious boy, Percy loves people and will often follow the feeders around on their rounds, always hoping for a little attention (and maybe an extra snack too!)",
+  "location": "In the park by the Outside Gym by Nola, Cluster P.",
+  "breed": "Semi-Fluffy/White & Ginger",
   "gender": "Male",
   "adoptable": false,
-  "photo": "photo.jpg"
+  "photo": "photo.jpg",
+  "tnr":true
 }
-

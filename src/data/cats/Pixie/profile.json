@@ -1,9 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "breed": "Tabby",
-  "gender": "Male",
-  "adoptable": false,
-  "photo": "photo.jpg"
+  "bio": "Pixie was first seen in December 2024. She was very cautious at first and took some time to gain our trust. In September 2025, she spent a short period indoors recovering from a small abscess, which showed us she would do well in a loving home. She’s now settled around Nola by the outdoor gym and gets along well with the other cats in the area.",
+  "location": "In the park by the Outside Gym by Nola, Cluster P.",
+  "breed": "Calico",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }
-
