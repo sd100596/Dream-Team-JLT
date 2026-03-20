@@ -60,4 +60,24 @@ const cats = Object.keys(catModules).map((path) => {
     };
 });
 
+export const totalPendingBillsAmount = cats
+  .flatMap(cat => cat.vetBills)
+  .filter(bill => bill.status === 'due' || bill.status === 'unpaid')
+  .reduce((sum, bill) => sum + bill.amount, 0);
+
+export const pendingBillsCount = cats
+  .flatMap(cat => cat.vetBills)
+  .filter(bill => bill.status === 'due' || bill.status === 'unpaid').length;
+
+export const catsWithPendingBills = cats
+  .map(cat => ({
+    id: cat.id,
+    name: cat.name,
+    pendingBills: cat.vetBills.filter(b => b.status === 'due' || b.status === 'unpaid'),
+    pendingAmount: cat.vetBills
+      .filter(b => b.status === 'due' || b.status === 'unpaid')
+      .reduce((sum, b) => sum + b.amount, 0)
+  }))
+  .filter(cat => cat.pendingBills.length > 0);
+
 export default { cats };
