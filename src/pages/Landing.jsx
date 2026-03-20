@@ -14,8 +14,8 @@ function Landing() {
       icon: FavoriteIcon,
       accent: '#FF6B6B',
       content: [
-        'We are a community-driven cat welfare group committed to supporting stray and dumped cats in our neighborhood. Through TNR, we ensure a healthier, more balanced community cat population over time. If you see a cat with a small snip on its left ear, this indicates that the cat has been neutured.',
-        'We also provide food, cover vet costs when needed and work to place vulnerable cats in safe, loving, forever homes.',
+        'We are a community-driven cat welfare group committed to supporting stray and dumped cats in our neighborhood (between Clusters O and R in JLT). Through our Trap‑Neuter‑Release (TNR) programme, we ensure a healthier, more balanced community cat population over time. If you see a cat with a small snip on its left ear, this indicates that the cat has been neutured.',
+        'In addition to TNR, we provide daily food, cover vet costs when needed and work to place vulnerable cats in safe, loving, forever homes.',
         'We operate entirely on goodwill and donations - every single dirham received goes directly toward the care and wellbeing of our feline friends.',
       ],
     },
@@ -401,7 +401,7 @@ function Landing() {
           </Typography>
           <Button 
             component={RouterLink} 
-            to="/cats"
+            to="/cats?adoptable=true"
             variant="contained"
             size="large"
             sx={{ 
@@ -423,7 +423,7 @@ function Landing() {
               transition: 'all 0.3s ease'
             }}
           >
-            View Cats
+            Meet Adoptable Cats
           </Button>
         </Container>
       </Box>

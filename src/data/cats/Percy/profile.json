@@ -3,7 +3,7 @@
   "location": "In the park by the Outside Gym by Nola, Cluster P.",
   "breed": "Semi-Fluffy/White & Ginger",
   "gender": "Male",
-  "adoptable": false,
+  "adoptable": true,
   "photo": "photo.jpg",
   "tnr":true
 }
