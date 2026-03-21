@@ -1,6 +1,8 @@
-import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select, MenuItem, Collapse, IconButton, FormControlLabel, Checkbox } from '@mui/material';
+import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select, MenuItem, Collapse, IconButton, FormControlLabel, Checkbox, TextField, InputAdornment } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FilterListAltIcon from '@mui/icons-material/FilterAlt';
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CatCard from '../components/CatCard';
@@ -25,6 +27,7 @@ function CatsGallery() {
   const [showFilters, setShowFilters] = useState(hasAdoptableParam || filters.tnrOnly || !!filters.gender);
   const [showHomedFilters, setShowHomedFilters] = useState(false);
   const [homedGenderFilter, setHomedGenderFilter] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Scroll position - save on scroll
   useEffect(() => {
@@ -54,20 +57,22 @@ function CatsGallery() {
   // Filter stray cats
   const filteredStrayCats = useMemo(() => {
     return strayCats.filter(cat => {
+      if (searchQuery && !cat.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
       if (filters.tnrOnly && !cat.tnr) return false;
       if (filters.adoptableOnly && !cat.adoptable) return false;
       if (filters.gender && cat.gender !== filters.gender) return false;
       return true;
     });
-  }, [strayCats, filters.tnrOnly, filters.adoptableOnly, filters.gender]);
+  }, [strayCats, searchQuery, filters.tnrOnly, filters.adoptableOnly, filters.gender]);
 
-  // Filter homed cats by gender
+  // Filter homed cats by gender and search
   const filteredHomedCats = useMemo(() => {
     return homedCats.filter(cat => {
+      if (searchQuery && !cat.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
       if (homedGenderFilter && cat.gender !== homedGenderFilter) return false;
       return true;
     });
-  }, [homedCats, homedGenderFilter]);
+  }, [homedCats, searchQuery, homedGenderFilter]);
 
   const clearFilters = () => {
     setFilters({
@@ -114,6 +119,35 @@ function CatsGallery() {
             including their location and any pending vet bills.
           </Typography>
         </Box>
+
+        {/* Search Bar */}
+        <TextField
+          size="small"
+          placeholder="Search cats by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ 
+            width: { xs: '100%', md: 400 },
+            mb: 2,
+            '& .MuiInputBase-input': {
+              fontSize: { xs: '0.875rem', sm: '1rem' }
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon sx={{ fontSize: { xs: 18, sm: 20 }, color: 'text.secondary' }} />
+              </InputAdornment>
+            ),
+            endAdornment: searchQuery ? (
+              <InputAdornment position="end">
+                <IconButton size="small" onClick={() => setSearchQuery('')} edge="end">
+                  <ClearIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
+                </IconButton>
+              </InputAdornment>
+            ) : null
+          }}
+        />
 
         {/* Stray Cats Section */}
         {strayCats.length > 0 && (
