@@ -1,8 +1,9 @@
 {
-  "bio": "Chubby cheeks, big purr, loves tuna treats. This fluffy boy is a cuddle monster.",
-  "location": "City park bench by the fountain",
-  "age": 5,
-  "breed": "Domestic Longhair",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Petunia first arrived in our area in April 2025. She’s incredibly friendly, so we believe she was once someone’s pet. It took her a little time to find a safe space, but she now has a regular spot and absolutely loves her food and being petted by the feeders. She’s very affectionate and likes to follow us around … even crossing the road at times, which can be a little nerve‑wracking!.",
+  "location": "Usually in front of The Pavilion, Cluster P.",
+  "breed": "Semi-Fluffy/Tortoiseshell",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }

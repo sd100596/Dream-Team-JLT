@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Blacky was first spotted in 2019. He was unfortunately dumped. When we eventually caught him for neutering it turned out he had a microchip but we couldn't find his previous owners. He does hang out with the other male cats in this area.",
+  "location": "Usually around Carrefour in Cluster P",
+  "breed": "Arabian Mau/Black",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr":true
 }

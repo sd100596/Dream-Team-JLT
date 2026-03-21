@@ -1,9 +1,14 @@
 [
   {
-    "id": "bill-whiskers-001",
-    "description": "Dental cleaning",
-    "dueDate": "2026-05-01",
-    "amountDue": 200,
-    "status": "due"
+    "description": "Consultation, hospialisation, x-ray, blood work, various medication",
+    "date": "2026-01-08",
+    "amount": 1560.51,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, hospialisation, IV, blood work, various medication",
+    "date": "2025-03-03",
+    "amount": 1859.89,
+    "status": "paid"
   }
 ]

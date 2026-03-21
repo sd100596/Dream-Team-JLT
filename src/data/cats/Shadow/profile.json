@@ -1,8 +1,9 @@
 {
-  "bio": "Playful and energetic. Oreo lives up to his name with his black and white markings.",
-  "location": "Oak Street community center",
-  "age": 1,
-  "breed": "Tuxedo",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Shadow was found in a basement car park on a cold morning in December 2025 … a tiny kitten under two months old, weighing just 1kg. Far too young and small to be without her mum, she was terrified and crying constantly as she searched for food. After rescue and extensive treatment for ringworm including 2 months of medical baths, she thrived in foster care. Now a healthy 3.3kg, Shadow is a happy, cuddly, chatty little purr machine who will fill any home with joy.",
+  "location": "Homed",
+  "breed": "Arabian Mau/Black",
+  "gender": "Female",
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": true
 }

@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Oscar was first spotted in August 2021 in Cluster O. He was very hard to get close to, but we eventually managed to get him for TNR in December that year. He has become a bit of a protector for the Cluster P carpark cats: looking after Perry when he was around and now keeping an eye on Meeku and Fluffy Tail, when she isn’t galivanting with the ‘Fruit Salad gang’!",
+  "location": "Cluster P carpark down from Carrefour",
+  "breed": "Arabian Mau/Ginger & White",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": true
 }

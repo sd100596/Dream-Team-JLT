@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Cole was first spotted in 2021. He is very similar to 'Blacky' another cat in the same area, and it is very hard to distinguish the two of them to be honest!",
+  "location": "Usually downstairs from Carrefour in Cluster P",
+  "breed": "Arabian Mau/Black",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": true
 }

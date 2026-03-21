@@ -1,0 +1,26 @@
+[
+  {
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2025-01-25",
+    "amount": 315.0,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH Vaccine",
+    "date": "2025-01-15",
+    "amount": 99.75,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, worming, wood lamp check",
+    "date": "2025-02-11",
+    "amount": 212.2,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH Vaccine",
+    "date": "2025-02-17",
+    "amount": 99.75,
+    "status": "paid"
+  }
+]

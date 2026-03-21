@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Cleo was first spotted in 2019. She was generally a lone spirit but she does love a chin rub and gets on OK with Tinker. She had some dental issues, but has recovered well.",
+  "location": "Usually outside Kulcha King Restaurant in Cluster O",
+  "breed": "Arabian Mau/White & Tabby",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": true
 }

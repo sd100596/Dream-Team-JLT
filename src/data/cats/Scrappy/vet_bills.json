@@ -1,9 +1,8 @@
 [
   {
-    "id": "bill-whiskers-001",
-    "description": "Dental cleaning",
-    "dueDate": "2026-05-01",
-    "amountDue": 200,
-    "status": "due"
+    "description": "Scrappy Consultation, sedation and surgery, wound treatment, hospitalisation, meds.",
+    "date": "2024-01-07",
+    "amount": 1369.80,
+    "status": "paid"
   }
 ]

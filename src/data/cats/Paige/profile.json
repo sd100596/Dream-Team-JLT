@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Paige is one of the new colony dumped in October 2025. She had some dental issues in January 2026, but fortunately we were able to treat her. She loved being inside and it was a shame to release her. She hangs around with her colony and her bestie 'Princess' who looks very similar to her.",
+  "location": "Downstairs from Baker Street in Cluster Q",
+  "breed": "Tortoiseshell",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }

@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Tinker is an original resident who has been around for years. A relative of Binker (now happily adopted), she knows her feeders well and loves the attention from visitors to her area. She is very calm, affectionate and gets on well with the other cats in her area.",
+  "location": "By the bridge/skateboard park in Cluster O",
+  "breed": "Tortoiseshell",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }

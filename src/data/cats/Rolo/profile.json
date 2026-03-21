@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
+  "bio": "Rolo isn’t such a welcome addition to the cat group as he has unfortunately, not only, been terrorizing new kitties in the area, but other resident male cats! He roams around a lot as he needs to be neutered. He is very nervous, so we need to build up trust to accomplish this.",
+  "location": "Between Clusters R and Q",
   "breed": "Tabby",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr":false
 }

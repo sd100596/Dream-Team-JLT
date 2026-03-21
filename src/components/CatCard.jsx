@@ -3,6 +3,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import ScissorsIcon from '@mui/icons-material/ContentCut';
 import { useNavigate } from 'react-router-dom';
 import { alpha } from '@mui/material/styles';
+import { memo } from 'react';
 
 function CatCard({ cat }) {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ function CatCard({ cat }) {
           component="img"
           image={cat.photoUrl}
           alt={cat.name}
-          sx={{ 
+          loading="lazy"
+          sx={{
             aspectRatio: '1/1',
             objectFit: 'cover',
           }}
@@ -111,7 +113,7 @@ function CatCard({ cat }) {
           sx={{ 
             fontFamily: '"Fredoka", sans-serif',
             fontWeight: 600,
-            fontSize: '1.25rem',
+            fontSize: { xs: '1.1rem', md: '1.25rem' },
             mb: 0.5
           }}
         >
@@ -135,4 +137,4 @@ function CatCard({ cat }) {
   );
 }
 
-export default CatCard;
+export default memo(CatCard);

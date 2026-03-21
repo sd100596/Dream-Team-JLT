@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Ronald is another recently dumped cat who has joined our group. He’s very friendly and affectionate, and we would love to find him a safe, loving home. We didin't see  him much at first, which suggests he was finding his way around and choosing where he felt most safe. He gets on with the other cats in his area.",
+  "location": "In the Park area downstairs from Al Maya in Cluster Q close to the feeding station",
+  "breed": "Arabian Mau/Black with a little White",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": true
 }

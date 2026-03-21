@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
-  "gender": "Male",
-  "photo": "photo.jpg"
+  "bio": "Penelope was first spotted across the road by Emirates Gold in August 2023 and she’s been there ever since. It’s a quiet little spot, so she absolutely loves when her feeders come to visit. She adores people and will never say no to a cuddle, always soaking up every bit of love and attention she can get.",
+  "location": "Over the road by Emirates Gold.",
+  "breed": "Calico",
+  "gender": "Female",
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr":true
 }

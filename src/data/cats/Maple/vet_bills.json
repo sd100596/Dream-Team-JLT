@@ -1,16 +1,14 @@
 [
   {
-    "description": "Maple Invoice 22-28 January 2026 Hospital stay/tests",
+    "description": "Consultation, various tests, hospitalisation, various medication",
     "date": "2026-01-26",
     "amount": 2220.60,
-    "status": "paid",
-    "pdf": "Invoice - 2158 - BIOVET LAB DMCC.pdf"
+    "status": "paid"
   },
   {
-    "description": "Maple Invoice 5 February 2026 Follow up tests",
+    "description": "Consultation, blood work",
     "date": "2026-02-05",
     "amount": 958.00,
-    "status": "paid",
-    "pdf": "Invoice - 2271 - BIOVET LAB DMCC.pdf"
+    "status": "paid"
   }
 ]

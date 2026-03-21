@@ -1,8 +1,14 @@
 [
   {
-    "description": "Rupert Invoice 22 January 2026 TNR",
-    "date": "2026-01-22",
-    "amount": 315.00,
-    "status": "unpaid"
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2025-11-30",
+    "amount": 315.0,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, hospialisation, tests, microchip, various medication",
+    "date": "2025-11-30",
+    "amount": 551.86,
+    "status": "paid"
   }
 ]

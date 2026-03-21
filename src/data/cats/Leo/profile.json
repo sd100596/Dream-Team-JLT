@@ -1,8 +1,9 @@
 {
-  "bio": "Whiskers and sunshine. Loves sunbeams and feather toys. A gentle soul who enjoys cozy spots.",
-  "location": "Downtown alley, near the bakery",
-  "age": 3,
-  "breed": "Domestic Shorthair",
-  "gender": "Female",
-  "photo": "photo.jpg"
+  "bio": "Leo was found in an emaciated state weighing just 2kg in December 2025. It was believed he was dumped and left outside for months without proper food or care. Fortunately, as soon as we spotted this new face, he was rushed to the vets where he stayed for a while for treatment. On release he went to a foster to regain his strength. She fell in love with him and immediately adopted him!",
+  "location": "Homed",
+  "breed": "Fluffy Ginger",
+  "gender": "Male",
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr":true
 }

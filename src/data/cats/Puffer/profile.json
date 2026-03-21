@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Puffer is a very vocal cat that we first spotted in October 2022. He is very vocal and actually a bit of a bully with the other male cats around. He has been in some cat-fights over the years, hence the vet visits!",
+  "location": "Downstairs from Carrefour in Cluster P",
+  "breed": "Arabian Mau/Black & White",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": true
 }

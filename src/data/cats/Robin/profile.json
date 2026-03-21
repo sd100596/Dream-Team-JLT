@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Robin formerly known as Buster because he had a poorly leg has been around since 2018 at least! He has the most gorgeous eyes and during COVID he enjoyed being overfed by the community of people allowed out for their daily walks. One feeder actually thought it was a different cat because of the sure size of him – except for those lovely eyes! He had some hospital visits because he was bullied by another cat (who has since relocated to Cluster E) and really suited being inside to recuperate. We tried and tried to find him a home, but with no luck…. Yet!",
+  "location": "He hangs around Mind & Body Salon in Cluster O",
+  "breed": "Arabian Mau/Tabby & White",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": true,
+  "photo": "photo.jpg",
+  "tnr": true
 }

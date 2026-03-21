@@ -1,8 +1,9 @@
 {
-  "bio": "The gentleman of the group. Always polite, always purring. A true dignified feline.",
-  "location": "Maple Avenue, near the library",
-  "age": 7,
-  "breed": "Tabby",
+  "bio": "Casper is one of the new colony who arrived at the end of October 2025. He is very scared, so we have been unable to get too close to him. We are trying to gain his trust.",
+  "location": "He moved around a bit at first, but is now usually found near Splendour Fields area.",
+  "breed": "Arabian Mau/White",
   "gender": "Male",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": false
 }

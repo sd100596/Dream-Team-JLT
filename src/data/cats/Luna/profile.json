@@ -1,8 +1,10 @@
 {
-  "bio": "Mysterious and elegant. Luna rules the night with her piercing eyes and graceful moves.",
-  "location": "Riverside neighborhood, block 7",
-  "age": 2,
-  "breed": "Black Domestic Shorthair",
+  "bio": "Luna is another one of our OGs. She has been around since before 2016. Her fur is super soft, but she has a strong personality and will stand up for herself against the male cats around.",
+  "location": "She is usually located between Clusters R and Q. The new colony moved her from her usual spot.",
+  "breed": "Calico",
   "gender": "Female",
-  "photo": "photo.jpg"
+  "adoptable": false,
+  "photo": "photo.jpg",
+  "tnr": true
 }
+

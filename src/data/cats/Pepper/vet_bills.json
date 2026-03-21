@@ -1,0 +1,32 @@
+[
+  {
+    "description": "Consultation, dental, scale & polish, meds, blood work",
+    "date": "2026-02-17",
+    "amount": 1459.53,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, inhouse hermoparasite check, meds, blood work",
+    "date": "2026-01-28",
+    "amount": 968.86,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, PCH, rabies, microchip",
+    "date": "2026-01-21",
+    "amount": 327.39,
+    "status": "paid"
+  },
+  {
+    "description": "Consultation, rabies, PCH, worming",
+    "date": "2025-12-20",
+    "amount": 142.28,
+    "status": "paid"
+  },
+  {
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2025-11-30",
+    "amount": 315.0,
+    "status": "paid"
+  }
+]
