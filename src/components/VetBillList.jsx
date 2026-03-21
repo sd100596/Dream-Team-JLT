@@ -162,7 +162,12 @@ function VetBillList({ bills }) {
         <Box sx={{ mb: 4 }}>
           <Typography
             variant="h6"
-            sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}
+            sx={{ 
+              mb: 2, 
+              fontFamily: '"Fredoka", sans-serif', 
+              fontWeight: 600,
+              fontSize: { xs: '1rem', sm: '1.1rem' }
+            }}
           >
             Pending Bills
           </Typography>
@@ -176,7 +181,12 @@ function VetBillList({ bills }) {
         <Box>
           <Typography
             variant="h6"
-            sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}
+            sx={{ 
+              mb: 2, 
+              fontFamily: '"Fredoka", sans-serif', 
+              fontWeight: 600,
+              fontSize: { xs: '1rem', sm: '1.1rem' }
+            }}
           >
             Paid Bills
           </Typography>

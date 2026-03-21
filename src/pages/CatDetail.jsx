@@ -218,7 +218,8 @@ function CatDetail() {
                 color="text.secondary"
                 sx={{
                   mb: isLongBio ? 2 : 4,
-                  lineHeight: 1.8,
+                  lineHeight: 1.7,
+                  fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' },
                   display: shouldClampBio ? '-webkit-box' : 'block',
                   WebkitLineClamp: shouldClampBio ? 3 : 'unset',
                   WebkitBoxOrient: shouldClampBio ? 'vertical' : 'unset',
@@ -298,7 +299,15 @@ function CatDetail() {
             {/* Notes */}
             {cat.notes && cat.notes.length > 0 && (
               <Box sx={{ mb: 4 }}>
-                <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
+                <Typography 
+                  variant="h6" 
+                  sx={{ 
+                    mb: 2, 
+                    fontFamily: '"Fredoka", sans-serif', 
+                    fontWeight: 600,
+                    fontSize: { xs: '1.1rem', sm: '1.25rem' }
+                  }}
+                >
                   Notes
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
@@ -318,7 +327,15 @@ function CatDetail() {
 
             {/* Vet Bills */}
             <Box>
-              <Typography variant="h6" sx={{ mb: 2, fontFamily: '"Fredoka", sans-serif', fontWeight: 600 }}>
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  mb: 2, 
+                  fontFamily: '"Fredoka", sans-serif', 
+                  fontWeight: 600,
+                  fontSize: { xs: '1.1rem', sm: '1.25rem' }
+                }}
+              >
                 Veterinary Bills
               </Typography>
               <VetBillList bills={cat.vetBills} />

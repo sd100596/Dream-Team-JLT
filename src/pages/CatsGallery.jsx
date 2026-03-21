@@ -1,7 +1,9 @@
-import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select, MenuItem, Collapse, IconButton, FormControlLabel, Checkbox } from '@mui/material';
+import { Container, Typography, Grid, Box, Chip, FormControl, InputLabel, Select, MenuItem, Collapse, IconButton, FormControlLabel, Checkbox, TextField, InputAdornment } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FilterListAltIcon from '@mui/icons-material/FilterAlt';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CatCard from '../components/CatCard';
 import catsData from '../data/cats';
@@ -23,9 +25,9 @@ function CatsGallery() {
   const [strayExpanded, setStrayExpanded] = useState(true);
   const [homedExpanded, setHomedExpanded] = useState(true);
   const [showFilters, setShowFilters] = useState(hasAdoptableParam || filters.tnrOnly || !!filters.gender);
-  const [filterIconShift, setFilterIconShift] = useState(0);
-  const filterControlsRef = useRef(null);
-  const filterIconRef = useRef(null);
+  const [showHomedFilters, setShowHomedFilters] = useState(false);
+  const [homedGenderFilter, setHomedGenderFilter] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Scroll position - save on scroll
   useEffect(() => {
@@ -34,24 +36,6 @@ function CatsGallery() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const controlsWidth = filterControlsRef.current?.offsetWidth || 0;
-    const iconWidth = filterIconRef.current?.offsetWidth || 0;
-    const shift = Math.max(0, controlsWidth - iconWidth);
-    setFilterIconShift(shift);
-  }, [showFilters, hasActiveFilters]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const controlsWidth = filterControlsRef.current?.offsetWidth || 0;
-      const iconWidth = filterIconRef.current?.offsetWidth || 0;
-      const shift = Math.max(0, controlsWidth - iconWidth);
-      setFilterIconShift(shift);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Restore scroll position on mount
@@ -73,12 +57,22 @@ function CatsGallery() {
   // Filter stray cats
   const filteredStrayCats = useMemo(() => {
     return strayCats.filter(cat => {
+      if (searchQuery && !cat.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
       if (filters.tnrOnly && !cat.tnr) return false;
       if (filters.adoptableOnly && !cat.adoptable) return false;
       if (filters.gender && cat.gender !== filters.gender) return false;
       return true;
     });
-  }, [strayCats, filters.tnrOnly, filters.adoptableOnly, filters.gender]);
+  }, [strayCats, searchQuery, filters.tnrOnly, filters.adoptableOnly, filters.gender]);
+
+  // Filter homed cats by gender and search
+  const filteredHomedCats = useMemo(() => {
+    return homedCats.filter(cat => {
+      if (searchQuery && !cat.name.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+      if (homedGenderFilter && cat.gender !== homedGenderFilter) return false;
+      return true;
+    });
+  }, [homedCats, searchQuery, homedGenderFilter]);
 
   const clearFilters = () => {
     setFilters({
@@ -112,11 +106,48 @@ function CatsGallery() {
           >
             Meet Our Cats
           </Typography>
-          <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 600, mx: 'auto' }}>
+          <Typography 
+            variant="h6" 
+            color="text.secondary" 
+            sx={{ 
+              maxWidth: 600, 
+              mx: 'auto',
+              fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' }
+            }}
+          >
             Each cat has a unique story. Click on any cat to learn more about them, 
             including their location and any pending vet bills.
           </Typography>
         </Box>
+
+        {/* Search Bar */}
+        <TextField
+          size="small"
+          placeholder="Search cats by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          sx={{ 
+            width: { xs: '100%', md: 400 },
+            mb: 2,
+            '& .MuiInputBase-input': {
+              fontSize: { xs: '0.875rem', sm: '1rem' }
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon sx={{ fontSize: { xs: 18, sm: 20 }, color: 'text.secondary' }} />
+              </InputAdornment>
+            ),
+            endAdornment: searchQuery ? (
+              <InputAdornment position="end">
+                <IconButton size="small" onClick={() => setSearchQuery('')} edge="end">
+                  <ClearIcon sx={{ fontSize: { xs: 16, sm: 18 } }} />
+                </IconButton>
+              </InputAdornment>
+            ) : null
+          }}
+        />
 
         {/* Stray Cats Section */}
         {strayCats.length > 0 && (
@@ -126,8 +157,6 @@ function CatsGallery() {
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'space-between',
-              flexWrap: { xs: 'wrap', md: 'nowrap' },
-              gap: { xs: 1.5, md: 0 },
               mb: 2,
               cursor: 'pointer',
               '&:hover': { opacity: 0.8 }
@@ -138,109 +167,80 @@ function CatsGallery() {
                 <IconButton size="small" sx={{ transform: strayExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
                   <ExpandMoreIcon />
                 </IconButton>
-                <Typography variant="h5">
+                <Typography variant="h5" sx={{ fontSize: { xs: '0.8rem', sm: '1.25rem', md: '1.5rem' }, whiteSpace: 'nowrap' }}>
                   Stray Cats ({filteredStrayCats.length})
                 </Typography>
               </Box>
-              
-              {/* Filters in section header */}
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-end',
-                  gap: 2,
-                  width: { xs: '100%', md: 360 },
-                  minHeight: 48,
-                  position: 'relative'
-                }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    right: 0,
-                    top: '50%',
-                    transform: `translateY(-50%) translateX(${showFilters ? -filterIconShift : 0}px)`,
-                    opacity: showFilters ? 0 : 1,
-                    pointerEvents: showFilters ? 'none' : 'auto',
-                    transition: 'opacity 20ms ease, transform 20ms ease'
-                  }}
+
+              {!showFilters ? (
+                <IconButton
+                  size="small"
+                  aria-label="Show filters"
+                  onClick={(e) => { e.stopPropagation(); setShowFilters(true); }}
+                  sx={{ mr: 0.5 }}
                 >
-                  <IconButton
-                    size="small"
-                    aria-label="Show filters"
-                    onClick={() => setShowFilters(true)}
-                    ref={filterIconRef}
-                  >
-                    <FilterListAltIcon />
-                  </IconButton>
-                </Box>
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    right: 0,
-                    top: '50%',
-                    transform: `translateY(-50%) translateX(${showFilters ? 0 : 8}px)`,
-                    opacity: showFilters ? 1 : 0,
-                    pointerEvents: showFilters ? 'auto' : 'none',
-                    transition: 'opacity 20ms ease, transform 1000ms ease'
+                  <FilterListAltIcon />
+                </IconButton>
+              ) : (
+                <Box 
+                  sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: { xs: 0.5, sm: 1.5, md: 2 },
+                    flexDirection: { xs: 'row', sm: 'row' },
+                    flexWrap: { xs: 'nowrap', sm: 'wrap' },
+                    maxWidth: '100%'
                   }}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  <Box ref={filterControlsRef} sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <FormControlLabel
-                      control={
-                        <Checkbox 
-                          size="small"
-                          checked={filters.tnrOnly}
-                          onChange={(e) => setFilters(prev => ({ ...prev, tnrOnly: e.target.checked }))}
-                        />
-                      }
-                      label="TNR'd"
-                      sx={{ mr: 2 }}
-                    />
-                    <FormControlLabel
-                      control={
-                        <Checkbox 
-                          size="small"
-                          checked={filters.adoptableOnly}
-                          onChange={(e) => setFilters(prev => ({ ...prev, adoptableOnly: e.target.checked }))}
-                        />
-                      }
-                      label="Adoptable"
-                      sx={{ mr: 2 }}
-                    />
-                    <FormControl size="small" sx={{ minWidth: 100 }}>
-                      <InputLabel>Gender</InputLabel>
-                      <Select
-                        value={filters.gender}
-                        label="Gender"
-                        onChange={(e) => setFilters(prev => ({ ...prev, gender: e.target.value }))}
-                      >
-                        <MenuItem value="Male">Male</MenuItem>
-                        <MenuItem value="Female">Female</MenuItem>
-                      </Select>
-                    </FormControl>
-                    {hasActiveFilters && (
-                      <Chip 
-                        label="Clear" 
-                        size="small" 
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          clearFilters();
-                        }}
-                        sx={{ cursor: 'pointer' }}
+                  <FormControlLabel
+                    control={
+                      <Checkbox 
+                        size="small"
+                        checked={filters.tnrOnly}
+                        onChange={(e) => setFilters(prev => ({ ...prev, tnrOnly: e.target.checked }))}
                       />
-                    )}
-                  </Box>
+                    }
+                    label={<Box component="span" sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' } }}>TNR'd</Box>}
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox 
+                        size="small"
+                        checked={filters.adoptableOnly}
+                        onChange={(e) => setFilters(prev => ({ ...prev, adoptableOnly: e.target.checked }))}
+                      />
+                    }
+                    label={<Box component="span" sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' } }}>Adoptable</Box>}
+                  />
+                  <FormControl size="small" sx={{ minWidth: { xs: 70, sm: 90, md: 100 } }}>
+                    <InputLabel sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' } }}>Gender</InputLabel>
+                    <Select
+                      value={filters.gender}
+                      label="Gender"
+                      onChange={(e) => setFilters(prev => ({ ...prev, gender: e.target.value }))}
+                      sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' }, pr: { xs: 4, sm: 0 } }}
+                    >
+                      <MenuItem value="Male">Male</MenuItem>
+                      <MenuItem value="Female">Female</MenuItem>
+                    </Select>
+                  </FormControl>
+                  {hasActiveFilters && (
+                    <Chip 
+                      label="Clear" 
+                      size="small" 
+                      onClick={(e) => { e.stopPropagation(); clearFilters(); setShowFilters(false); }}
+                      sx={{ cursor: 'pointer', fontSize: { xs: '0.65rem', sm: '0.75rem' }, height: { xs: 22 } }}
+                    />
+                  )}
                 </Box>
-              </Box>
+              )}
             </Box>
             
             <Collapse in={strayExpanded}>
-              <Grid container spacing={3}>
+              <Grid container spacing={2}>
                 {filteredStrayCats.map(cat => (
-                  <Grid item xs={12} sm={6} md={4} key={cat.id}>
+                  <Grid item xs={6} sm={6} md={4} key={cat.id}>
                     <CatCard cat={cat} />
                   </Grid>
                 ))}
@@ -256,7 +256,7 @@ function CatsGallery() {
           <Box sx={{ mb: 4 }}>
             <Box 
               sx={{ 
-                display: 'flex', 
+              display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'space-between',
                 mb: 2,
@@ -269,16 +269,59 @@ function CatsGallery() {
                 <IconButton size="small" sx={{ transform: homedExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}>
                   <ExpandMoreIcon />
                 </IconButton>
-                <Typography variant="h5">
-                  Homed Cats ({homedCats.length})
+                <Typography variant="h5" sx={{ fontSize: { xs: '0.8rem', sm: '1.25rem', md: '1.5rem' } }}>
+                  Homed Cats ({filteredHomedCats.length})
                 </Typography>
               </Box>
+
+              {!showHomedFilters ? (
+                <IconButton
+                  size="small"
+                  aria-label="Show filters"
+                  onClick={(e) => { e.stopPropagation(); setShowHomedFilters(true); }}
+                  sx={{ mr: 0.5 }}
+                >
+                  <FilterListAltIcon />
+                </IconButton>
+              ) : (
+                <Box 
+                  sx={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: { xs: 0.5, sm: 1.5 },
+                    flexWrap: { xs: 'nowrap', sm: 'wrap' },
+                    maxWidth: '100%'
+                  }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <FormControl size="small" sx={{ minWidth: { xs: 70, sm: 90, md: 100 } }}>
+                    <InputLabel sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' } }}>Gender</InputLabel>
+                    <Select
+                      value={homedGenderFilter}
+                      label="Gender"
+                      onChange={(e) => setHomedGenderFilter(e.target.value)}
+                      sx={{ fontSize: { xs: '0.7rem', sm: '0.875rem' }, pr: { xs: 4, sm: 0 } }}
+                    >
+                      <MenuItem value="Male">Male</MenuItem>
+                      <MenuItem value="Female">Female</MenuItem>
+                    </Select>
+                  </FormControl>
+                  {homedGenderFilter && (
+                    <Chip 
+                      label="Clear" 
+                      size="small" 
+                      onClick={(e) => { e.stopPropagation(); setHomedGenderFilter(''); setShowHomedFilters(false); }}
+                      sx={{ cursor: 'pointer', fontSize: { xs: '0.65rem', sm: '0.75rem' }, height: { xs: 22 } }}
+                    />
+                  )}
+                </Box>
+              )}
             </Box>
             
             <Collapse in={homedExpanded}>
-              <Grid container spacing={3}>
-                {homedCats.map(cat => (
-                  <Grid item xs={12} sm={6} md={4} key={cat.id}>
+              <Grid container spacing={2}>
+                {filteredHomedCats.map(cat => (
+                  <Grid item xs={6} sm={6} md={4} key={cat.id}>
                     <CatCard cat={cat} />
                   </Grid>
                 ))}

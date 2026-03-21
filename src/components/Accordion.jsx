@@ -40,7 +40,7 @@ function AccordionItem({ title, children, defaultExpanded = false }) {
           sx={{ 
             fontFamily: '"Fredoka", sans-serif',
             fontWeight: 600,
-            fontSize: '1.4rem',
+            fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.4rem' },
           }}
         >
           {title}
@@ -54,7 +54,10 @@ function AccordionItem({ title, children, defaultExpanded = false }) {
                 key={index}
                 variant="h6"
                 color="text.secondary"
-                sx={{ lineHeight: 1.8, fontSize: '1.1rem' }}
+                sx={{ 
+                  lineHeight: 1.7, 
+                  fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' }
+                }}
               >
                 {paragraph}
               </Typography>

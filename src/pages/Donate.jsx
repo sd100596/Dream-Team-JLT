@@ -47,7 +47,12 @@ function Donate() {
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
           <Typography
             variant="h2"
-            sx={{ fontWeight: 700, fontFamily: '"Fredoka", sans-serif', mb: 1 }}
+            sx={{ 
+              fontWeight: 700, 
+              fontFamily: '"Fredoka", sans-serif', 
+              mb: 1,
+              fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem' }
+            }}
           >
             Want to help?
           </Typography>
@@ -114,8 +119,8 @@ function Donate() {
               <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
                 <Box
                   sx={(theme) => ({
-                    width: 56,
-                    height: 56,
+                    width: { xs: 44, sm: 56 },
+                    height: { xs: 44, sm: 56 },
                     borderRadius: "18px",
                     display: "grid",
                     placeItems: "center",
@@ -126,9 +131,15 @@ function Donate() {
                     )} 100%)`,
                   })}
                 >
-                  <PaymentIcon sx={{ fontSize: 30 }} />
+                  <PaymentIcon sx={{ fontSize: { xs: 24, sm: 30 } }} />
                 </Box>
-                <Typography variant="h4" sx={{ fontWeight: 600 }}>
+                <Typography 
+                  variant="h4" 
+                  sx={{ 
+                    fontWeight: 600,
+                    fontSize: { xs: '1.25rem', sm: '1.4rem', md: '1.6rem' }
+                  }}
+                >
                   Pay the Vet Clinic
                 </Typography>
               </Box>
@@ -252,8 +263,8 @@ function Donate() {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}>
                   <Box
                     sx={(theme) => ({
-                      width: 48,
-                      height: 48,
+                      width: { xs: 40, sm: 48 },
+                      height: { xs: 40, sm: 48 },
                       borderRadius: "16px",
                       display: "grid",
                       placeItems: "center",
@@ -264,9 +275,15 @@ function Donate() {
                       )} 100%)`,
                     })}
                   >
-                    <VolunteerActivismIcon sx={{ fontSize: 26 }} />
+                    <VolunteerActivismIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
                   </Box>
-                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  <Typography 
+                    variant="h5" 
+                    sx={{ 
+                      fontWeight: 600,
+                      fontSize: { xs: '1.1rem', sm: '1.25rem' }
+                    }}
+                  >
                     Other Ways to Help
                   </Typography>
                 </Box>
@@ -314,8 +331,8 @@ function Donate() {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}>
                   <Box
                     sx={(theme) => ({
-                      width: 48,
-                      height: 48,
+                      width: { xs: 40, sm: 48 },
+                      height: { xs: 40, sm: 48 },
                       borderRadius: "16px",
                       display: "grid",
                       placeItems: "center",
@@ -326,9 +343,15 @@ function Donate() {
                       )} 100%)`,
                     })}
                   >
-                    <ContactMailIcon sx={{ fontSize: 26 }} />
+                    <ContactMailIcon sx={{ fontSize: { xs: 22, sm: 26 } }} />
                   </Box>
-                  <Typography variant="h5" sx={{ fontWeight: 600 }}>
+                  <Typography 
+                    variant="h5" 
+                    sx={{ 
+                      fontWeight: 600,
+                      fontSize: { xs: '1.1rem', sm: '1.25rem' }
+                    }}
+                  >
                     Contact Us
                   </Typography>
                 </Box>

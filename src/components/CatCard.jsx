@@ -113,7 +113,7 @@ function CatCard({ cat }) {
           sx={{ 
             fontFamily: '"Fredoka", sans-serif',
             fontWeight: 600,
-            fontSize: '1.25rem',
+            fontSize: { xs: '1.1rem', md: '1.25rem' },
             mb: 0.5
           }}
         >
