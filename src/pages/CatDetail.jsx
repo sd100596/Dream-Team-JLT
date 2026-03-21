@@ -144,6 +144,7 @@ function CatDetail() {
                   component="img"
                   src={cat.photoUrl}
                   alt={cat.name}
+                  loading="lazy"
                   sx={{
                     width: '100%',
                     aspectRatio: '1/1',

@@ -35,7 +35,8 @@ function CatCard({ cat }) {
           component="img"
           image={cat.photoUrl}
           alt={cat.name}
-          sx={{ 
+          loading="lazy"
+          sx={{
             aspectRatio: '1/1',
             objectFit: 'cover',
           }}
