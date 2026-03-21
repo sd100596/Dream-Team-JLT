@@ -75,7 +75,7 @@ function Landing() {
             theme.palette.mode === 'light'
               ? 'linear-gradient(135deg, #FFF9F5 0%, #FFE8E8 50%, #E8F6F5 100%)'
               : 'linear-gradient(135deg, #0F141A 0%, #151C24 45%, #0C2A2A 100%)',
-          py: { xs: 8, md: 12 },
+          py: { xs: 4, sm: 6, md: 8, lg: 12 },
           position: 'relative',
           overflow: 'hidden',
         })}
@@ -110,9 +110,9 @@ function Landing() {
               <Typography 
                 variant="h1" 
                 sx={{ 
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  fontSize: { xs: '1.75rem', sm: '2rem', md: '2.5rem', lg: '3.5rem' },
                   fontWeight: 700,
-                  mb: 2,
+                  mb: { xs: 1.5, md: 2 },
                   lineHeight: 1.2
                 }}
               >
@@ -122,21 +122,35 @@ function Landing() {
                 </Box>{' '}
                 at a Time
               </Typography>
-              <Typography variant="h5" color="text.secondary" sx={{ mb: 4, fontWeight: 400 }}>
+              <Typography 
+                variant="h5" 
+                color="text.secondary" 
+                sx={{ 
+                  mb: { xs: 3, md: 4 }, 
+                  fontWeight: 400,
+                  fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' }
+                }}
+              >
                 Join us in making a difference in the lives of cats who need us most.
               </Typography>
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+            <Box sx={{ 
+              display: 'flex', 
+              gap: { xs: 1.5, sm: 2 }, 
+              flexWrap: { xs: 'nowrap', sm: 'wrap' },
+              justifyContent: { xs: 'center', md: 'flex-start' }
+            }}>
               <Button 
                 component={RouterLink} 
                 to="/cats"
                 variant="contained" 
                 color="primary"
-                size="large"
+                size="medium"
                 startIcon={<PetsIcon />}
                 sx={{ 
-                  py: 1.5,
-                  px: 4,
-                  fontSize: '1.1rem',
+                  py: { xs: 1, sm: 1.5 },
+                  px: { xs: 2.5, sm: 4 },
+                  fontSize: { xs: '0.875rem', sm: '1rem' },
+                  whiteSpace: 'nowrap',
                   '&:hover': { 
                     transform: 'translateY(-3px)',
                     boxShadow: '0 8px 20px rgba(255,107,107,0.4)'
@@ -151,12 +165,13 @@ function Landing() {
                 to="/donate"
                 variant="contained"
                 color="primary"
-                size="large"
+                size="medium"
                 startIcon={<FavoriteIcon />}
                 sx={{
-                  py: 1.5,
-                  px: 4,
-                  fontSize: '1.1rem',
+                  py: { xs: 1, sm: 1.5 },
+                  px: { xs: 2.5, sm: 4 },
+                  fontSize: { xs: '0.875rem', sm: '1rem' },
+                  whiteSpace: 'nowrap',
                   '&:hover': {
                     transform: 'translateY(-3px)',
                     boxShadow: '0 8px 20px rgba(236,64,122,0.4)'
@@ -205,7 +220,7 @@ function Landing() {
       {/* Learn More Section */}
       <Box
         sx={(theme) => ({
-          py: { xs: 8, md: 10 },
+          py: { xs: 4, sm: 6, md: 8, lg: 10 },
           position: 'relative',
           overflow: 'hidden',
           background:
@@ -241,7 +256,11 @@ function Landing() {
           <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
             <Typography
               variant="h3"
-              sx={{ fontWeight: 600, mb: 1 }}
+              sx={{ 
+                fontWeight: 600, 
+                mb: 1,
+                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem', lg: '2.5rem' }
+              }}
             >
               Learn More About Us
             </Typography>
@@ -300,22 +319,22 @@ function Landing() {
                     })}
                   >
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-                      <Box
-                        sx={{
-                          width: 56,
-                          height: 56,
-                          borderRadius: '18px',
-                          display: 'grid',
-                          placeItems: 'center',
-                          color: item.accent,
-                          background: `linear-gradient(135deg, ${alpha(
-                            item.accent,
-                            0.2
-                          )} 0%, ${alpha(item.accent, 0.55)} 100%)`,
-                        }}
-                      >
-                        <Icon sx={{ fontSize: 30 }} />
-                      </Box>
+                    <Box
+                      sx={{
+                        width: { xs: 44, sm: 56 },
+                        height: { xs: 44, sm: 56 },
+                        borderRadius: '18px',
+                        display: 'grid',
+                        placeItems: 'center',
+                        color: item.accent,
+                        background: `linear-gradient(135deg, ${alpha(
+                          item.accent,
+                          0.2
+                        )} 0%, ${alpha(item.accent, 0.55)} 100%)`,
+                      }}
+                    >
+                      <Icon sx={{ fontSize: { xs: 24, sm: 30 } }} />
+                    </Box>
                       <Box>
                         <Typography
                           variant="overline"
@@ -393,10 +412,24 @@ function Landing() {
         })}
       >
         <Container maxWidth="md">
-          <Typography variant="h4" sx={{ mb: 2, fontWeight: 600 }}>
+          <Typography 
+            variant="h4" 
+            sx={{ 
+              mb: 2, 
+              fontWeight: 600,
+              fontSize: { xs: '1.25rem', sm: '1.5rem', md: '1.75rem' }
+            }}
+          >
             Ready to Meet Your New Best Friend?
           </Typography>
-          <Typography variant="h6" sx={{ mb: 4, opacity: 0.9 }}>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              mb: { xs: 3, md: 4 }, 
+              opacity: 0.9,
+              fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }
+            }}
+          >
             Browse our cat profiles and find your perfect companion.
           </Typography>
           <Button 
@@ -431,14 +464,20 @@ function Landing() {
       {/* Footer */}
       <Box
         sx={(theme) => ({
-          py: 4,
+          py: { xs: 3, sm: 4 },
           bgcolor: theme.palette.mode === 'light' ? '#2D3436' : '#0B0F14',
           color: 'common.white',
           textAlign: 'center',
         })}
       >
         <Container>
-          <Typography variant="body2" sx={{ opacity: 0.7 }}>
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              opacity: 0.7,
+              fontSize: { xs: '0.75rem', sm: '0.875rem' }
+            }}
+          >
             © 2026 Dream Team JLT. All rights reserved. Made with ❤️ for cats.
           </Typography>
         </Container>

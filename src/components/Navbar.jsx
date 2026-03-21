@@ -19,35 +19,39 @@ function Navbar({ mode, onToggleMode }) {
             : '0 2px 12px rgba(0,0,0,0.35)',
       })}
     >
-      <Toolbar sx={{ justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      <Toolbar sx={{ justifyContent: 'space-between', py: { xs: 0.5 } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }} component={RouterLink} to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <Box
             component="img"
             src="/logo.png"
             alt="Dream Team JLT Logo"
-            sx={{ height: 40 }}
+            sx={{ height: { xs: 28, sm: 36, md: 40 }, cursor: 'pointer' }}
           />
           <Typography 
             variant="h6" 
-            component={RouterLink} 
-            to="/"
             sx={{ 
               textDecoration: 'none', 
               color: 'text.primary',
               fontFamily: '"Fredoka", sans-serif',
               fontWeight: 600,
-              fontSize: '1.4rem'
+              fontSize: { xs: '1rem', sm: '1.15rem', md: '1.4rem' },
+              display: { xs: 'none', md: 'block' }
             }}
           >
             Dream Team JLT
           </Typography>
         </Box>
         
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 }, alignItems: 'center' }}>
           <Button 
             component={RouterLink} 
             to="/"
-            sx={{ color: 'text.secondary' }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            sx={{ 
+              color: 'text.secondary',
+              fontSize: { xs: '0.8rem', sm: '0.875rem' },
+              minWidth: { xs: 'auto' }
+            }}
           >
             Home
           </Button>
@@ -56,7 +60,11 @@ function Navbar({ mode, onToggleMode }) {
             to="/cats"
             variant="contained"
             color="primary"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             sx={{ 
+              fontSize: { xs: '0.8rem', sm: '0.875rem' },
+              py: { xs: 0.75, sm: 1 },
+              px: { xs: 2, sm: 3 },
               '&:hover': { 
                 bgcolor: 'primary.dark',
                 transform: 'translateY(-2px)',
@@ -72,7 +80,7 @@ function Navbar({ mode, onToggleMode }) {
               onClick={onToggleMode} 
               color="inherit" 
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-              sx={{ ml: 0.5 }}
+              sx={{ ml: { xs: 0, sm: 0.5 } }}
             >
               {isDark ? <LightModeIcon /> : <DarkModeIcon />}
             </IconButton>
