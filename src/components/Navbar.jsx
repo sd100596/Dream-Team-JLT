@@ -20,17 +20,18 @@ function Navbar({ mode, onToggleMode }) {
       })}
     >
       <Toolbar sx={{ justifyContent: 'space-between', py: { xs: 0.5 } }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }} component={RouterLink} to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Box
-            component="img"
-            src="/logo.png"
-            alt="Dream Team JLT Logo"
+            component={RouterLink}
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             sx={{ height: { xs: 28, sm: 36, md: 40 }, cursor: 'pointer' }}
-          />
+          >
+            <img src="/logo.png" alt="Dream Team JLT Logo" style={{ height: '100%', width: 'auto' }} />
+          </Box>
           <Typography 
             variant="h6" 
             sx={{ 
-              textDecoration: 'none', 
               color: 'text.primary',
               fontFamily: '"Fredoka", sans-serif',
               fontWeight: 600,
