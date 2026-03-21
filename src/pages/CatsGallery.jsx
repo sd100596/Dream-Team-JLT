@@ -23,7 +23,7 @@ function CatsGallery() {
 
   // Collapsible section states
   const [strayExpanded, setStrayExpanded] = useState(true);
-  const [homedExpanded, setHomedExpanded] = useState(true);
+  const [homedExpanded, setHomedExpanded] = useState(false);
   const [showFilters, setShowFilters] = useState(hasAdoptableParam || filters.tnrOnly || !!filters.gender);
   const [showHomedFilters, setShowHomedFilters] = useState(false);
   const [homedGenderFilter, setHomedGenderFilter] = useState('');
