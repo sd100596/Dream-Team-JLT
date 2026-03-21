@@ -1,14 +1,10 @@
-import { useState } from "react";
-import { Box, Container, Typography, Paper, Button, Link, Grid, Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, ListItemText, ListItemSecondaryAction } from "@mui/material";
+import { Box, Container, Typography, Paper, Button, Link, Grid } from "@mui/material";
 import PaymentIcon from "@mui/icons-material/Payment";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import { alpha } from "@mui/material/styles";
-import { totalPendingBillsAmount, pendingBillsCount, catsWithPendingBills } from "../data/cats";
 
 function Donate() {
-  const [billsModalOpen, setBillsModalOpen] = useState(false);
-
   return (
     <Box
       sx={(theme) => ({
@@ -56,20 +52,10 @@ function Donate() {
           >
             Want to help?
           </Typography>
-<Typography variant="body1" color="text.secondary" sx={{ maxWidth: 640, mx: "auto" }}>
+          <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 640, mx: "auto" }}>
             We operate entirely on goodwill and donations - every dirham goes directly toward food,
             medical care, and the wellbeing of our cats.
           </Typography>
-          {totalPendingBillsAmount > 0 && (
-            <Typography 
-              variant="body2" 
-              color="text.secondary" 
-              sx={{ mt: 1, cursor: 'pointer', '&:hover': { textDecoration: 'underline' } }}
-              onClick={() => setBillsModalOpen(true)}
-            >
-              Outstanding vet bills: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(totalPendingBillsAmount)} ({pendingBillsCount} {pendingBillsCount === 1 ? 'bill' : 'bills'})
-            </Typography>
-          )}
         </Box>
 
         <Grid container spacing={3} alignItems="stretch">
@@ -390,43 +376,6 @@ function Donate() {
           </Typography>
 </Box>
       </Container>
-
-      <Dialog open={billsModalOpen} onClose={() => setBillsModalOpen(false)} maxWidth="xs" fullWidth>
-        <DialogTitle sx={{ fontFamily: '"Fredoka", sans-serif' }}>
-          Pending Bills
-        </DialogTitle>
-        <DialogContent dividers>
-          <List dense>
-            {catsWithPendingBills.map(cat => (
-              <ListItem
-                key={cat.id}
-                component={Link}
-                href={`/cats/${cat.id}`}
-                onClick={() => setBillsModalOpen(false)}
-                sx={{ 
-                  textDecoration: 'none', 
-                  color: 'inherit',
-                  borderRadius: 1,
-                  '&:hover': { bgcolor: 'action.hover' }
-                }}
-              >
-                <ListItemText 
-                  primary={cat.name} 
-                  secondary={`${cat.pendingBills.length} ${cat.pendingBills.length === 1 ? 'pending bill' : 'pending bills'}`}
-                />
-                <ListItemSecondaryAction>
-                  <Typography variant="body2" color="primary.main" sx={{ fontWeight: 600 }}>
-                    {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'AED' }).format(cat.pendingAmount)}
-                  </Typography>
-                </ListItemSecondaryAction>
-              </ListItem>
-            ))}
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setBillsModalOpen(false)}>Close</Button>
-        </DialogActions>
-      </Dialog>
     </Box>
   );
 }
