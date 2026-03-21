@@ -295,6 +295,23 @@ function Donate() {
                   You can also help by fostering or adopting a cat in need, volunteering your time
                   with feeding or wet-food rounds, or simply spreading the word about what we do.
                 </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
+                  We also have a fundraising tracker for all the cats in JLT.{" "}
+                  <Link
+                    href="https://jltcatloversdonationtracker-ruddy.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      fontWeight: 700,
+                      textDecoration: "underline",
+                      textUnderlineOffset: "3px",
+                      color: "primary.main",
+                      "&:hover": { color: "primary.dark" },
+                    }}
+                  >
+                    View Fundraising Tracker
+                  </Link>
+                </Typography>
               </Paper>
 
               <Paper
