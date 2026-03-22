@@ -6,6 +6,7 @@ import CatsGallery from './pages/CatsGallery';
 import CatDetail from './pages/CatDetail';
 import Donate from './pages/Donate';
 import { Box } from '@mui/material';
+import { Analytics } from '@vercel/analytics/react';
 
 function App({ mode, onToggleMode }) {
   return (
@@ -18,6 +19,7 @@ function App({ mode, onToggleMode }) {
         <Route path="/cats" element={<CatsGallery />} />
         <Route path="/cats/:id" element={<CatDetail />} />
       </Routes>
+      <Analytics />
     </Box>
   );
 }
