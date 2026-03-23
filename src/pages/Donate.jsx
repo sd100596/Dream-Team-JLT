@@ -391,7 +391,7 @@ function Donate() {
             Every contribution, no matter the size, helps us provide food, medical care, and love
             to cats in need.
           </Typography>
-</Box>
+        </Box>
       </Container>
     </Box>
   );

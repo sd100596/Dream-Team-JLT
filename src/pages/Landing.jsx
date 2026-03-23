@@ -478,6 +478,9 @@ function Landing() {
               fontSize: { xs: '0.75rem', sm: '0.875rem' }
             }}
           >
+            <Link href="/privacy-policy" underline="hover" color="inherit" sx={{ display: 'block', mb: 0.5 }}>
+              Privacy Policy
+            </Link>
             © 2026 Dream Team JLT. All rights reserved. Made with ❤️ for cats.
           </Typography>
         </Container>
