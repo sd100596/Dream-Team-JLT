@@ -5,12 +5,13 @@ import Landing from './pages/Landing';
 import CatsGallery from './pages/CatsGallery';
 import CatDetail from './pages/CatDetail';
 import Donate from './pages/Donate';
+import Legal from './pages/Legal';
 import { Box } from '@mui/material';
 import { Analytics } from '@vercel/analytics/react';
 
 function App({ mode, onToggleMode }) {
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
+    <Box sx={{ bgcolor: 'background.default' }}>
       <ScrollToTop />
       <Navbar mode={mode} onToggleMode={onToggleMode} />
       <Routes>
@@ -18,6 +19,7 @@ function App({ mode, onToggleMode }) {
         <Route path="/donate" element={<Donate />} />
         <Route path="/cats" element={<CatsGallery />} />
         <Route path="/cats/:id" element={<CatDetail />} />
+        <Route path="/privacy-policy" element={<Legal />} />
       </Routes>
       <Analytics />
     </Box>
