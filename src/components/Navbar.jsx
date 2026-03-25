@@ -25,22 +25,32 @@ function Navbar({ mode, onToggleMode }) {
             component={RouterLink}
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            sx={{ height: { xs: 28, sm: 36, md: 40 }, cursor: 'pointer' }}
+            sx={{ height: { xs: 28, sm: 36, md: 40 }, cursor: 'pointer', display: { xs: 'none', md: 'block' } }}
           >
             <img src="/logo.png" alt="Dream Team JLT Logo" style={{ height: '100%', width: 'auto' }} />
           </Box>
-          <Typography 
-            variant="h6" 
+          <Box
+            component={RouterLink}
+            to="/"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             sx={{ 
-              color: 'text.primary',
-              fontFamily: '"Fredoka", sans-serif',
-              fontWeight: 600,
-              fontSize: { xs: '1rem', sm: '1.15rem', md: '1.4rem' },
-              display: { xs: 'none', md: 'block' }
+              cursor: 'pointer',
+              textDecoration: 'none',
+              '&:hover': { textDecoration: 'none' }
             }}
           >
-            Dream Team JLT
-          </Typography>
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: 'text.primary',
+                fontFamily: '"Fredoka", sans-serif',
+                fontWeight: 600,
+                fontSize: { xs: '1rem', sm: '1.15rem', md: '1.4rem' }
+              }}
+            >
+              Dream Team JLT
+            </Typography>
+          </Box>
         </Box>
         
         <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 }, alignItems: 'center' }}>
