@@ -137,7 +137,7 @@ function Landing() {
               display: 'flex', 
               gap: { xs: 1.5, sm: 2 }, 
               flexWrap: { xs: 'nowrap', sm: 'wrap' },
-              justifyContent: { xs: 'center', md: 'flex-start' }
+              justifyContent: { xs: 'flex-start', md: 'flex-start' }
             }}>
               <Button 
                 component={RouterLink} 
