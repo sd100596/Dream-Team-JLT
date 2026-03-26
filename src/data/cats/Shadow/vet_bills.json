@@ -39,13 +39,13 @@
     "description": "Consultation, woodlamp, medicated bath, various medication",
     "date": "2026-01-19",
     "amount": 673.82,
-    "status": "unpaid"
+    "status": "paid"
   },
   {
     "description": "Consultation, giardia, various medication",
     "date": "2025-12-27",
     "amount": 371.66,
-    "status": "unpaid"
+    "status": "paid"
   },
   {
     "description": "Consultation, giardia, various medication",
