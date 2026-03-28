@@ -3,7 +3,7 @@
   "location": "He is based in between Clusters Q and R",
   "breed": "Arabian Mau/Black",
   "gender": "Male",
-  "adoptable": false,
+  "adoptable": true,
   "photo": "photo.jpg",
   "tnr": true
 }

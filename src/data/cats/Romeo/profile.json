@@ -3,7 +3,7 @@
   "location": "He is near the feeding station based downstairs from Al Maya Supermarket in Cluster Q",
   "breed": "Arabian Mau/Orange & White",
   "gender": "Male",
-  "adoptable": false,
+  "adoptable": true,
   "photo": "photo.jpg",
   "tnr": true
 }
