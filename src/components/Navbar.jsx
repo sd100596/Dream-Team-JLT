@@ -27,7 +27,13 @@ function Navbar({ mode, onToggleMode }) {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             sx={{ height: { xs: 28, sm: 36, md: 40 }, cursor: 'pointer', display: { xs: 'none', md: 'block' } }}
           >
-            <img src="/logo.png" alt="Dream Team JLT Logo" style={{ height: '100%', width: 'auto' }} />
+            <Box sx={{ filter: (theme) => theme.palette.mode === 'dark' ? 'brightness(1.4)' : 'none', height: '100%' }}>
+              <img
+                src="/DreamTeamJLT_Logo.png"
+                alt="Dream Team JLT Logo"
+                style={{ height: '100%', width: 'auto' }}
+              />
+            </Box>
           </Box>
           <Box
             component={RouterLink}

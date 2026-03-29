@@ -183,32 +183,49 @@ function Landing() {
               </Button>
             </Box>
             </Grid>
-            <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'block' } }}>
+            <Grid item xs={12} md={6}>
               <Box
                 sx={{
-                  position: 'relative',
-                  width: 240,
-                  height: 240,
-                  borderRadius: '50%',
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  height: '100%',
                 }}
               >
-                {/* Soft white radiance behind the logo for blending with pink banner */}
                 <Box
                   sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
+                    position: 'relative',
+                    width: 340,
+                    height: 340,
                     borderRadius: '50%',
-                    
-                    zIndex: 0,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
-                />
-                <img src="/logo2.png" alt="Dream Team JLT logo" style={{ width: 200, height: 'auto', zIndex: 1 }} />
+                >
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '50%',
+                      zIndex: 0,
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      filter: (theme) => theme.palette.mode === 'dark' ? 'brightness(1.4)' : 'none',
+                    }}
+                  >
+                    <img 
+                      src="/DreamTeamJLT_Logo.png" 
+                      alt="Dream Team JLT logo" 
+                      style={{ width: 340, height: 'auto', zIndex: 1 }} 
+                    />
+                  </Box>
+                </Box>
               </Box>
             </Grid>
           </Grid>
