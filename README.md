@@ -1,38 +1,35 @@
-# 🐱 Dream Team JLT - Cat Support Group Website
+# Dream Team JLT - Cat Welfare Website
 
-A beautiful, playful website for a cat support group that displays cat profiles with their details, location, and veterinary bills.
+A website for a community cat welfare group in JLT, Dubai. Showcases cat profiles, tracks veterinary bills, and helps connect people with cats that need support or a home.
 
 ![React](https://img.shields.io/badge/React-18.2-blue)
 ![Vite](https://img.shields.io/badge/Vite-5.0-yellow)
 ![MUI](https://img.shields.io/badge/Material%20UI-5.15-purple)
 
-## ✨ Features
+## Features
 
-- 🏠 **Landing Page** - Beautiful hero section with mission statement and FAQ accordion
-- 🐱 **Cats Gallery** - Responsive grid of cat profiles with photo-frame styled cards
-- 📋 **Cat Details** - Full profile view with location, notes, and veterinary bills
-- 🔴 **Pending Bills Indicator** - Red exclamation badge on cats with unpaid vet bills
-- 📄 **PDF Viewer** - View and download attached PDF invoices for vet bills
-- 📱 **Responsive Design** - Works beautifully on desktop, tablet, and mobile
+- **Landing Page** - Hero section, mission statement, and ways to help
+- **Cats Gallery** - Searchable, filterable grid of all cats (stray and homed sections)
+- **Cat Details** - Full profile with location, notes, vet bills, and prev/next navigation within section
+- **Donate Page** - Payment instructions and other ways to contribute
+- **Dark / Light Mode** - System preference detected on first load, persists across sessions
+- **Pending Bills Indicator** - Red badge on cats with unpaid vet bills
+- **TNR & Adoptable Badges** - At-a-glance status on each cat card
+- **Responsive Design** - Works on desktop, tablet, and mobile
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm
 
 ### Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/sd100596/Dream-Team-JLT.git
 cd Dream-Team-JLT
-
-# Install dependencies
 npm install
-
-# Start development server
 npm run dev
 ```
 
@@ -42,19 +39,18 @@ npm run dev
 npm run build
 ```
 
-The built files will be in the `dist/` folder.
+Built files will be in the `dist/` folder.
 
-## 🐈 Adding New Cats
+## Adding a New Cat
 
-Adding a new cat is easy! Just create a new folder in `src/data/cats/` with the cat's name:
+Create a folder under `src/data/cats/` named after the cat:
 
 ```
 src/data/cats/
-├── CatName/
-│   ├── profile.json      # Cat information
-│   ├── vet_bills.json    # Veterinary bills
-│   ├── photo.jpg         # Profile photo (optional)
-│   └── bill-id.pdf       # PDF invoices (optional)
+└── CatName/
+    ├── profile.json
+    ├── vet_bills.json
+    └── photo.jpg        # also accepts .jpeg or .png
 ```
 
 ### profile.json
@@ -62,13 +58,18 @@ src/data/cats/
 ```json
 {
   "bio": "A short description of the cat",
-  "location": "Where the cat is located",
+  "location": "Where the cat lives (use \"Homed\" if adopted)",
   "age": 3,
-  "breed": "Cat breed",
-  "gender": "Male/Female",
-  "notes": ["Note 1", "Note 2"]
+  "breed": "Domestic Shorthair",
+  "gender": "Female",
+  "tnr": true,
+  "adoptable": false,
+  "notes": ["Friendly", "Vaccinated"]
 }
 ```
+
+- Set `"location": "Homed"` to move the cat into the Homed section of the gallery
+- `notes` is optional — omit or leave as `[]` if none
 
 ### vet_bills.json
 
@@ -78,28 +79,28 @@ src/data/cats/
     "description": "Vaccination",
     "date": "2026-04-15",
     "amount": 45,
-    "status": "due",
-    "pdf": "invoice.pdf"
+    "status": "unpaid"
   },
   {
     "description": "Checkup",
-    "date": "2026-05-01",
+    "date": "2026-03-01",
     "amount": 50,
     "status": "paid"
   }
 ]
 ```
 
-- `pdf` field is optional - omit it if there's no attached document
-- If present, the value should match the PDF filename in the cat's folder
+- `status` must be `"unpaid"` or `"paid"`
+- Use an empty array `[]` if the cat has no bills
 
-## 🎨 Tech Stack
+## Tech Stack
 
-- **React** - UI framework
-- **Vite** - Build tool
-- **Material UI** - Component library
-- **React Router** - Navigation
+- **React 18** - UI framework
+- **Vite 5** - Build tool
+- **Material UI 5** - Component library
+- **React Router 6** - Navigation
+- **Vercel Analytics** - Usage tracking (no ad cookies)
 
-## 📄 License
+## License
 
 MIT License
