@@ -9,7 +9,7 @@ import ErrorIcon from '@mui/icons-material/Error';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import VetBillList from '../components/VetBillList';
-import catsData from '../data/cats';
+import catsData, { strayCats, homedCats } from '../data/cats';
 import { alpha } from '@mui/material/styles';
 
 function CatDetail() {
@@ -21,13 +21,13 @@ function CatDetail() {
     navigate('/cats');
   };
   
-  const cats = catsData.cats;
-  const cat = cats.find(c => c.id === id);
-  const currentIndex = cats.findIndex(c => c.id === id);
-  const prevCat = currentIndex > 0 ? cats[currentIndex - 1] : null;
-  const nextCat = currentIndex < cats.length - 1 ? cats[currentIndex + 1] : null;
+  const cat = catsData.cats.find(c => c.id === id);
+  const sectionCats = cat?.status === 'homed' ? homedCats : strayCats;
+  const currentIndex = sectionCats.findIndex(c => c.id === id);
+  const prevCat = currentIndex > 0 ? sectionCats[currentIndex - 1] : null;
+  const nextCat = currentIndex < sectionCats.length - 1 ? sectionCats[currentIndex + 1] : null;
   
-  const hasPendingBills = cat?.vetBills?.some(b => b.status === 'due' || b.status === 'unpaid');
+  const hasPendingBills = cat?.hasPendingBills;
   const isLongBio = (cat?.bio?.length || 0) > 220;
   const shouldClampBio = isLongBio && !isBioExpanded;
 

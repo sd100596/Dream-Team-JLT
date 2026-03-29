@@ -4,7 +4,6 @@ import {
   Typography,
   Paper,
   Chip,
-  IconButton,
   Tooltip,
   Button,
   Dialog,
@@ -19,77 +18,18 @@ import PaymentIcon from "@mui/icons-material/Payment";
 import { alpha } from "@mui/material/styles";
 import { Link as RouterLink } from "react-router-dom";
 
-function VetBillList({ bills }) {
-  const [supportModal, setSupportModal] = useState({
-    open: false,
-    description: "",
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
   });
-  const [showAllBills, setShowAllBills] = useState(false);
 
-  const pendingBills =
-    bills?.filter((b) => b.status === "due" || b.status === "unpaid") || [];
-  const paidBills = bills?.filter((b) => b.status === "paid") || [];
-  const totalBills = bills?.length || 0;
-  const maxVisibleBills = 2;
-  const shouldCollapse = totalBills > maxVisibleBills;
+const formatCurrency = (amount) =>
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "AED" }).format(amount);
 
-  useEffect(() => {
-    setShowAllBills(false);
-  }, [totalBills]);
-
-  const getVisibleBills = () => {
-    if (!shouldCollapse || showAllBills) {
-      return { pending: pendingBills, paid: paidBills };
-    }
-
-    if (pendingBills.length >= maxVisibleBills) {
-      return { pending: pendingBills.slice(0, maxVisibleBills), paid: [] };
-    }
-
-    const remaining = maxVisibleBills - pendingBills.length;
-    return { pending: pendingBills, paid: paidBills.slice(0, remaining) };
-  };
-
-  const { pending: visiblePendingBills, paid: visiblePaidBills } =
-    getVisibleBills();
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-  };
-
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "AED",
-    }).format(amount);
-  };
-
-  const openSupportModal = (description) => {
-    setSupportModal({ open: true, description });
-  };
-
-  const closeSupportModal = () => {
-    setSupportModal({ open: false, description: "" });
-  };
-
-  if (!bills || bills.length === 0) {
-    return (
-      <Box sx={{ textAlign: "center", py: 4 }}>
-        <CheckCircleIcon
-          sx={{ fontSize: 48, color: "secondary.main", mb: 1 }}
-        />
-        <Typography variant="h6" color="text.secondary">
-          No vet bills - this cat is healthy!
-        </Typography>
-      </Box>
-    );
-  }
-
-  const BillItem = ({ bill, isPending }) => (
+function BillItem({ bill, isPending, onHelp }) {
+  return (
     <Paper
       sx={(theme) => ({
         p: 2,
@@ -128,12 +68,12 @@ function VetBillList({ bills }) {
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-        {(bill.status === "due" || bill.status === "unpaid") && (
+        {isPending && (
           <Tooltip title="Help or donate to support this cat">
             <Chip
               icon={<SupportIcon fontSize="small" />}
               label="Help"
-              onClick={() => openSupportModal(bill.description)}
+              onClick={() => onHelp(bill.description)}
               clickable
               color="success"
               sx={{ fontWeight: 600 }}
@@ -149,6 +89,62 @@ function VetBillList({ bills }) {
       </Box>
     </Paper>
   );
+}
+
+function VetBillList({ bills }) {
+  const [supportModal, setSupportModal] = useState({
+    open: false,
+    description: "",
+  });
+  const [showAllBills, setShowAllBills] = useState(false);
+
+  const pendingBills =
+    bills?.filter((b) => b.status === "unpaid") || [];
+  const paidBills = bills?.filter((b) => b.status === "paid") || [];
+  const totalBills = bills?.length || 0;
+  const maxVisibleBills = 2;
+  const shouldCollapse = totalBills > maxVisibleBills;
+
+  useEffect(() => {
+    setShowAllBills(false);
+  }, [totalBills]);
+
+  const getVisibleBills = () => {
+    if (!shouldCollapse || showAllBills) {
+      return { pending: pendingBills, paid: paidBills };
+    }
+
+    if (pendingBills.length >= maxVisibleBills) {
+      return { pending: pendingBills.slice(0, maxVisibleBills), paid: [] };
+    }
+
+    const remaining = maxVisibleBills - pendingBills.length;
+    return { pending: pendingBills, paid: paidBills.slice(0, remaining) };
+  };
+
+  const { pending: visiblePendingBills, paid: visiblePaidBills } =
+    getVisibleBills();
+
+  const openSupportModal = (description) => {
+    setSupportModal({ open: true, description });
+  };
+
+  const closeSupportModal = () => {
+    setSupportModal({ open: false, description: "" });
+  };
+
+  if (!bills || bills.length === 0) {
+    return (
+      <Box sx={{ textAlign: "center", py: 4 }}>
+        <CheckCircleIcon
+          sx={{ fontSize: 48, color: "secondary.main", mb: 1 }}
+        />
+        <Typography variant="h6" color="text.secondary">
+          No vet bills - this cat is healthy!
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box>
@@ -162,9 +158,9 @@ function VetBillList({ bills }) {
         <Box sx={{ mb: 4 }}>
           <Typography
             variant="h6"
-            sx={{ 
-              mb: 2, 
-              fontFamily: '"Fredoka", sans-serif', 
+            sx={{
+              mb: 2,
+              fontFamily: '"Fredoka", sans-serif',
               fontWeight: 600,
               fontSize: { xs: '1rem', sm: '1.1rem' }
             }}
@@ -172,7 +168,7 @@ function VetBillList({ bills }) {
             Pending Bills
           </Typography>
           {visiblePendingBills.map((bill) => (
-            <BillItem key={bill.id} bill={bill} isPending={true} />
+            <BillItem key={bill.id} bill={bill} isPending={true} onHelp={openSupportModal} />
           ))}
         </Box>
       )}
@@ -181,9 +177,9 @@ function VetBillList({ bills }) {
         <Box>
           <Typography
             variant="h6"
-            sx={{ 
-              mb: 2, 
-              fontFamily: '"Fredoka", sans-serif', 
+            sx={{
+              mb: 2,
+              fontFamily: '"Fredoka", sans-serif',
               fontWeight: 600,
               fontSize: { xs: '1rem', sm: '1.1rem' }
             }}
@@ -191,7 +187,7 @@ function VetBillList({ bills }) {
             Paid Bills
           </Typography>
           {visiblePaidBills.map((bill) => (
-            <BillItem key={bill.id} bill={bill} isPending={false} />
+            <BillItem key={bill.id} bill={bill} isPending={false} onHelp={openSupportModal} />
           ))}
         </Box>
       )}

@@ -6,12 +6,12 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import CatCard from '../components/CatCard';
-import catsData from '../data/cats';
+import catsData, { strayCats, homedCats } from '../data/cats';
 
 function CatsGallery() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const cats = (catsData?.cats) || [];
-  
+  const cats = catsData.cats;
+
   // Filter states (only for stray cats)
   const hasAdoptableParam = searchParams.get('adoptable') === 'true';
   const [filters, setFilters] = useState({
@@ -29,30 +29,33 @@ function CatsGallery() {
   const [homedGenderFilter, setHomedGenderFilter] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Scroll position - save on scroll
+  // Scroll position - save on scroll (debounced to avoid excessive sessionStorage writes)
   useEffect(() => {
+    let timeout;
     const handleScroll = () => {
-      sessionStorage.setItem('catsGalleryScrollY', window.scrollY.toString());
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        sessionStorage.setItem('catsGalleryScrollY', window.scrollY.toString());
+      }, 100);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  // Restore scroll position on mount
+  // Restore scroll position on mount only when returning from a cat detail page
   useEffect(() => {
-    const savedPosition = sessionStorage.getItem('catsGalleryScrollY');
-    if (savedPosition) {
-      window.scrollTo({
-        top: parseInt(savedPosition, 10),
-        left: 0,
-        behavior: 'auto'
-      });
+    const shouldRestore = sessionStorage.getItem('catsGalleryRestoreScroll') === 'true';
+    if (shouldRestore) {
+      const savedPosition = sessionStorage.getItem('catsGalleryScrollY');
+      sessionStorage.removeItem('catsGalleryRestoreScroll');
+      if (savedPosition) {
+        window.scrollTo({ top: parseInt(savedPosition, 10), left: 0, behavior: 'auto' });
+      }
     }
   }, []);
-
-  // Group cats by status
-  const strayCats = useMemo(() => cats.filter(cat => cat.status === 'stray'), [cats]);
-  const homedCats = useMemo(() => cats.filter(cat => cat.status === 'homed'), [cats]);
 
   // Filter stray cats
   const filteredStrayCats = useMemo(() => {
