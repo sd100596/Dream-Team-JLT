@@ -42,7 +42,7 @@ const cats = Object.keys(catModules).map((path) => {
     const status = isHomed ? 'homed' : 'stray';
     
     // Check if cat has pending bills
-    const hasPendingBills = vetBills?.some(bill => bill.status === 'due' || bill.status === 'unpaid') || false;
+    const hasPendingBills = vetBills?.some(bill => bill.status === 'unpaid') || false;
 
     return {
       id: folderName,
@@ -65,22 +65,25 @@ const cats = Object.keys(catModules).map((path) => {
 
 export const totalPendingBillsAmount = cats
   .flatMap(cat => cat.vetBills)
-  .filter(bill => bill.status === 'due' || bill.status === 'unpaid')
+  .filter(bill => bill.status === 'unpaid')
   .reduce((sum, bill) => sum + bill.amount, 0);
 
 export const pendingBillsCount = cats
   .flatMap(cat => cat.vetBills)
-  .filter(bill => bill.status === 'due' || bill.status === 'unpaid').length;
+  .filter(bill => bill.status === 'unpaid').length;
 
 export const catsWithPendingBills = cats
   .map(cat => ({
     id: cat.id,
     name: cat.name,
-    pendingBills: cat.vetBills.filter(b => b.status === 'due' || b.status === 'unpaid'),
+    pendingBills: cat.vetBills.filter(b => b.status === 'unpaid'),
     pendingAmount: cat.vetBills
-      .filter(b => b.status === 'due' || b.status === 'unpaid')
+      .filter(b => b.status === 'unpaid')
       .reduce((sum, b) => sum + b.amount, 0)
   }))
   .filter(cat => cat.pendingBills.length > 0);
+
+export const strayCats = cats.filter(c => c.status === 'stray');
+export const homedCats = cats.filter(c => c.status === 'homed');
 
 export default { cats };

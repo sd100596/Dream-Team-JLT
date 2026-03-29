@@ -5,14 +5,6 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const restoreCatsGallery =
-      pathname === '/cats' &&
-      sessionStorage.getItem('catsGalleryRestoreScroll') === 'true';
-
-    if (restoreCatsGallery) {
-      return;
-    }
-
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
 

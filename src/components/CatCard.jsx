@@ -8,7 +8,7 @@ import { memo } from 'react';
 function CatCard({ cat }) {
   const navigate = useNavigate();
   
-  const hasPendingBills = cat.vetBills?.some(bill => bill.status === 'due' || bill.status === 'unpaid');
+  const { hasPendingBills } = cat;
 
   const handleClick = () => {
     navigate(`/cats/${cat.id}`);
