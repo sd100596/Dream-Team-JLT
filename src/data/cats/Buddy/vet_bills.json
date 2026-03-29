@@ -1,5 +1,11 @@
 [
   {
+    "description": "Consultation, PCH Vaccine",
+    "date": "2026-03-26",
+    "amount": 115.5,
+    "status": "paid"
+  },
+  {
     "description": "Consultation, rabies, microchip",
     "date": "2026-03-09",
     "amount": 183.75,
@@ -9,6 +15,12 @@
     "description": "Consultation, PCH Vaccine, worming, nail trimming",
     "date": "2026-03-04",
     "amount": 438.99,
+    "status": "paid"
+  },
+  {
+    "description": "TNR - kindly sponsored by DMCC",
+    "date": "2026-01-17",
+    "amount": 420.0,
     "status": "paid"
   }
 ]
